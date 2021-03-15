@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Tarea_7
+namespace Tarea_7.Pages
 {
     #line hidden
     using System;
@@ -83,13 +83,6 @@ using Tarea_7.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "c:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
-using Tarea_7.Models;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 12 "c:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
 using Tarea_7.Data;
 
@@ -131,13 +124,30 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
-    public partial class _Imports : System.Object
+#nullable restore
+#line 2 "c:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\Pages\VacunadosPorZodiaco.razor"
+using Tarea_7.Models;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/vacunadosPorZodiaco")]
+    public partial class VacunadosPorZodiaco : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected void Execute()
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 29 "c:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\Pages\VacunadosPorZodiaco.razor"
+       
+    Dictionary<string, int> GetPacientesZodiaco() => new vacunadosrdContext().Signozodiacal.ToList().GroupBy(s => s.Signo)
+        .ToDictionary(s => s.Key, s => s.Count());
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

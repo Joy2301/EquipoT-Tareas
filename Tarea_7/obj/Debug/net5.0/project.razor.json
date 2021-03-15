@@ -283,105 +283,6 @@
         }
       },
       {
-        "HashCode": 1345399985,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VProvincia",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "VProvincia"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VProvincia"
-        }
-      },
-      {
-        "HashCode": -1590317730,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VProvincia",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.VProvincia"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VProvincia",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -640285642,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.DropVacuna",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "DropVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.DropVacuna"
-        }
-      },
-      {
-        "HashCode": 1552407005,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.DropVacuna",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.DropVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.DropVacuna",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 614214267,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.Registro",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Registro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.Registro"
-        }
-      },
-      {
-        "HashCode": -78182732,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.Registro",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.Registro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.Registro",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -230787556,
         "Kind": "Components.Component",
         "Name": "Tarea_7.Pages.PacientesLista",
@@ -444,6 +345,138 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea_7.Pages.VMarcas",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2145422595,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VacunadosPorZodiaco",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VacunadosPorZodiaco"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VacunadosPorZodiaco"
+        }
+      },
+      {
+        "HashCode": -447236561,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VacunadosPorZodiaco",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.VacunadosPorZodiaco"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VacunadosPorZodiaco",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 614214267,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.Registro",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Registro"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.Registro"
+        }
+      },
+      {
+        "HashCode": -78182732,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.Registro",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.Registro"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.Registro",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -640285642,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.DropVacuna",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "DropVacuna"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.DropVacuna"
+        }
+      },
+      {
+        "HashCode": 1552407005,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.DropVacuna",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.DropVacuna"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.DropVacuna",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1345399985,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VProvincia",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VProvincia"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VProvincia"
+        }
+      },
+      {
+        "HashCode": -1590317730,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VProvincia",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.VProvincia"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VProvincia",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -16296,6 +16329,11 @@
     {
       "FilePath": "c:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\Tarea_7\\Pages\\RegistroConfiguracionVacuna.razor",
       "TargetPath": "Pages\\RegistroConfiguracionVacuna.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\Tarea_7\\Pages\\VacunadosPorZodiaco.razor",
+      "TargetPath": "Pages\\VacunadosPorZodiaco.razor",
       "FileKind": "component"
     },
     {
