@@ -139,7 +139,7 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "c:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\Shared\NavMenu.razor"
+#line 48 "c:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
