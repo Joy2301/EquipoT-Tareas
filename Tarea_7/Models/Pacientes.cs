@@ -19,6 +19,7 @@ namespace Tarea_7.Models
         public int? SignoId { get; set; }
         public DateTime? FechaPrimeraVacuna { get; set; }
         public DateTime? FechaSegundaVacuna { get; set; }
+        public string cedula { get; set; }
 
         public virtual Provincias Provincia { get; set; }
         public virtual Signozodiacal Signo { get; set; }

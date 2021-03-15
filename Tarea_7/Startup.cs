@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Tarea_7.Models;
 using Tarea_7.Data;
 
 namespace Tarea_7
@@ -28,7 +29,8 @@ namespace Tarea_7
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddDbContext<vacunadosrdContext>();
+            services.AddScoped<IPacienteService, PacienteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

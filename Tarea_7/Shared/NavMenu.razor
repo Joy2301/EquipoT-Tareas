@@ -1,5 +1,5 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Tarea_7</a>
+    <a class="navbar-brand" href="">Vacunado COVID-19</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,17 +9,37 @@
     <ul class="nav flex-column">
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
+                <span class="oi oi-plus" aria-hidden="true"></span> Registrar
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            <NavLink class="nav-link" href="PacientesLista">
+                <span class="oi oi-list" aria-hidden="true"></span> Pacientes
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            <NavLink class="nav-link" href="VProvincia">
+                <span class="oi oi-list" aria-hidden="true"></span> Vacunados Provincia
+            </NavLink>
+        </li>
+         <li class="nav-item px-3">
+            <NavLink class="nav-link" href="VMarcas">
+                <span class="oi oi-list" aria-hidden="true"></span> Vacunados por Marca
+            </NavLink>
+        </li>
+         <li class="nav-item px-3">
+            <NavLink class="nav-link" href="Zodiacal">
+                <span class="oi oi-list" aria-hidden="true"></span> Signos Zodiacales
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="DropVacuna">
+                <span class="oi oi-trash" aria-hidden="true"></span> Eliminar pacientes
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="Configuracion">
+                <span class="oi oi-cog" aria-hidden="true"></span> Configuracion
             </NavLink>
         </li>
     </ul>

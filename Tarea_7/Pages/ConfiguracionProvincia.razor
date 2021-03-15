@@ -1,0 +1,56 @@
+@page "/ConfiguracionProvincia"
+@page "/ConfiguracionProvincia/{id:int}"
+
+@inject IPacienteService PacienteService
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <h1 class="display-6">Editar Provincia</h1>
+    <br>
+
+    <EditForm Model="@provincias">
+        <table class="table">
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@provincias.Nombre">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Guardar" class="btn btn-primary" @onclick="UpdateProvincia">
+                    <input type="button" value="Cancelar" class="btn btn-secondary" @onclick="Cancelar">
+                </td>
+                
+            </tr>
+        </table>
+    </EditForm>
+
+</div>
+
+@code {
+    [Parameter]
+    public int id {get; set;}
+    public Provincias provincias = new Provincias();
+
+    /*  Una vez obtenemos un ID por parametro de la url 
+        verificamos que sea distinto de 0 y traemos los detalles de la tabla
+    */
+    protected override async Task OnInitializedAsync()
+        {
+            if (id != 0)
+            {
+                provincias = await PacienteService.GetDetallesProvincia(id);
+            }
+        }
+
+    protected async Task UpdateProvincia()
+    {
+        await PacienteService.UpdateProvincia(provincias);
+        NavigationManager.NavigateTo("/Configuracion");
+    }
+
+    protected void Cancelar()
+    {
+        NavigationManager.NavigateTo("/Configuracion");
+    }
+}

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WpGJ9/9pgsO+BuG0H2H5uYfLhIqPfnCfY5UnfP9a0XlrsA33e2TWcPFlDIbz/v4zdx+SuKCzhUt1JssBYr34sg==",
+  "dgSpecHash": "oo073Jym9yeZBEkPvsMRqO5mZ3k1YAxJnS1zceaSigWH5t6wHtjMIHmv/JNG+HMXA0HwJySWKsjnc/fLtSTqDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\Tarea_7\\Tarea_7.csproj",
   "expectedPackageFiles": [
@@ -57,9 +57,10 @@
     "C:\\Users\\mdela\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\mdela\\.nuget\\packages\\mysqlconnector\\0.69.9\\mysqlconnector.0.69.9.nupkg.sha512",
     "C:\\Users\\mdela\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\mdela\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\mdela\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\mdela\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\3.2.4\\pomelo.entityframeworkcore.mysql.3.2.4.nupkg.sha512",
     "C:\\Users\\mdela\\.nuget\\packages\\pomelo.jsonobject\\2.2.1\\pomelo.jsonobject.2.2.1.nupkg.sha512",
+    "C:\\Users\\mdela\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512",
     "C:\\Users\\mdela\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\mdela\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\mdela\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

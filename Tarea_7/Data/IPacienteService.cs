@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Tarea_7.Models;
+
+namespace Tarea_7.Data
+{
+    interface IPacienteService
+    {
+        Task<bool> InsertPaciente(Pacientes pacientes);
+        Task<bool> InsertProvincia(Provincias provincias);
+        Task<bool> InsertVacunas(Vacunas vacunas);
+        Task<bool> UpdatePaciente(Pacientes pacientes);
+        Task<bool> UpdateProvincia(Provincias provincias);
+        Task<Provincias> GetDetallesProvincia(int id);
+
+        Task<bool> UpdateVacuna(Vacunas vacunas);
+        Task<Vacunas> GetDetallesVacunas(int id);
+        Task<bool> SavePaciente(Pacientes pacientes);
+    }
+}

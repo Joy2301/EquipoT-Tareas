@@ -82,8 +82,58 @@ using Tarea_7.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
-    public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 11 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
+using Tarea_7.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
+using Tarea_7.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
+using RestSharp;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
+using System.Net;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
+using System.Web;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 17 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\_Imports.razor"
+using System.IO;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/ConfiguracionVacunas")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/ConfiguracionVacunas/{id:int}")]
+    public partial class ConfiguracionVacunas : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -91,18 +141,38 @@ using Tarea_7.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\Pages\Counter.razor"
+#line 34 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_7\Pages\ConfiguracionVacunas.razor"
        
-    private int currentCount = 0;
+    [Parameter]
+    public int id {get; set;}
+    public Vacunas vacunas = new Vacunas();
 
-    private void IncrementCount()
+    protected override async Task OnInitializedAsync()
+        {
+            if (id != 0)
+            {
+                vacunas = await PacienteService.GetDetallesVacunas(id);
+            }
+        }
+
+    
+    
+    protected async Task UpdateVacunas()
     {
-        currentCount++;
+        await PacienteService.UpdateVacuna(vacunas);
+        NavigationManager.NavigateTo("/ListaConfiguracionVacunas");
+    }
+
+    protected void Cancelar()
+    {
+        NavigationManager.NavigateTo("/ListaConfiguracionVacunas");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPacienteService PacienteService { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -1,0 +1,42 @@
+@page "/RegistroConfiguracionProvincia"
+
+@inject IPacienteService PacienteService
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <h1 class="display-6">Agregar Provincia</h1>
+    <br>
+
+    <EditForm Model="@provincias">
+        <table class="table">
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@provincias.Nombre">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Guardar" class="btn btn-primary" @onclick="InsertarProvincia">
+                    <input type="button" value="Cancelar" class="btn btn-secondary" @onclick="Cancelar">
+                </td>
+                
+            </tr>
+        </table>
+    </EditForm>
+
+</div>
+
+@code {
+    public Provincias provincias = new Provincias();
+
+    protected async Task InsertarProvincia()
+    {
+        await PacienteService.InsertProvincia(provincias);
+        NavigationManager.NavigateTo("/Configuracion");
+    }
+
+    protected void Cancelar()
+    {
+        NavigationManager.NavigateTo("/Configuracion");
+    }
+}

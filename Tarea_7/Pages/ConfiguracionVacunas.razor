@@ -1,0 +1,59 @@
+@page "/ConfiguracionVacunas"
+@page "/ConfiguracionVacunas/{id:int}"
+
+@inject IPacienteService PacienteService
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <h1 class="display-6">Editar Vacunas</h1>
+    <br>
+
+    <EditForm Model="@vacunas">
+        <table class="table">
+            <tr>
+                <td>Marca:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@vacunas.Marca">
+                </td>
+            </tr>
+            <tr>
+                <td>Cantidad:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@vacunas.Cantidad">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Guardar" class="btn btn-primary" @onclick="UpdateVacunas">
+                    <input type="button" value="Cancelar" class="btn btn-secondary" @onclick="Cancelar">
+                </td>
+            </tr>
+        </table>
+    </EditForm>
+
+</div>
+
+@code {
+    [Parameter]
+    public int id {get; set;}
+    public Vacunas vacunas = new Vacunas();
+
+    protected override async Task OnInitializedAsync()
+        {
+            if (id != 0)
+            {
+                vacunas = await PacienteService.GetDetallesVacunas(id);
+            }
+        }
+
+    
+    
+    protected async Task UpdateVacunas()
+    {
+        await PacienteService.UpdateVacuna(vacunas);
+        NavigationManager.NavigateTo("/ListaConfiguracionVacunas");
+    }
+
+    protected void Cancelar()
+    {
+        NavigationManager.NavigateTo("/ListaConfiguracionVacunas");
+    }
+}

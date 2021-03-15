@@ -1,0 +1,131 @@
+@page "/PacientesLista"
+
+@using Tarea_7.Models;
+
+<div class="container">
+    <h1 class="display-6">Pacientes</h1>
+    <br>
+    <p>
+        Listado de todos los pacientes vacunados
+    </p>
+    <br>
+
+    <div>
+        <input type="text" @bind-value="@value">
+        <button class="btn btn-primary" @onclick="Filtrar">Filtrar</button>
+    </div>
+    <br>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                    <th>FechaNacimiento</th>
+                    <th>Vacuna</th>
+                    <th>Provincia</th>
+                    <th>Signo</th>
+                    <th>Primera Vacuna</th>
+                    <th>Segunda Vacuna</th>
+                    <th>Cedula</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (VistaPaciente Pa in Pacientes)
+                {
+                    <tr>
+                        <td>@Pa.Nombre</td>
+                        <td>@Pa.Apellido</td>
+                        <td>@Pa.Telefono</td>
+                        <td>@Pa.FechaNacimiento</td>
+                        <td>@Pa.Vacuna</td>
+                        <td>@Pa.Provincia</td>
+                        <td>@Pa.Signo</td>
+                        <td>@Pa.FechaPrimeraVacuna</td>
+                        <td>@Pa.FechaSegundaVacuna</td>
+                        <td>@Pa.cedula</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code
+{
+    public string value { get; set; } = "";
+    public List<VistaPaciente> Pacientes { get; set; } = GetPacientes();
+
+    public void Filtrar()
+    {
+        value = value.ToUpper();
+        Pacientes = GetPacientes();
+        Pacientes = Pacientes.Where(
+            p => p.Nombre .Contains(value.ToLower()) ||
+            p.Nombre .Contains(value.ToUpper()) ||
+            p.Apellido.Contains(value.ToLower()) ||
+            p.Apellido.Contains(value.ToUpper()) 
+        ).ToList();
+    }
+
+    //Clase con las propiedades que necesito mostrar
+    public class VistaPaciente
+    {
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Telefono { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public string Vacuna { get; set; }
+        public string Provincia { get; set; }
+        public string Signo { get; set; }
+        public DateTime? FechaPrimeraVacuna { get; set; }
+        public DateTime? FechaSegundaVacuna { get; set; }
+        public string cedula { get; set; }
+    }
+
+    //Hago un Join entre Pacientes, vacunas, y provincias para mostrar sus datos
+    static List<VistaPaciente> GetPacientes()
+    {
+        var context = new vacunadosrdContext();
+
+        return context.Pacientes
+            .Join(
+                context.Vacunas,
+                p => p.VacunaId,
+                v => v.Id,
+                (p, v) => new { Vacunas = v, Pacientes = p }
+            )
+            .Join(
+                context.Provincias,
+                p => p.Pacientes.ProvinciaId,
+                pr => pr.Id,
+                (p, pr) => new { Provincias = pr, Vacunas = p.Vacunas, Pacientes = p.Pacientes }
+            )
+            .Join(
+                context.Signozodiacal,
+                p => p.Pacientes.SignoId,
+                s => s.Id,
+                (p, s) => new { 
+                    Signozodiacal = s, 
+                    Provincias = p.Provincias, 
+                    Pacientes = p.Pacientes, 
+                    Vacunas = p.Vacunas
+                }
+            )
+            .Select(
+                p => new VistaPaciente{
+                    Nombre = p.Pacientes.Nombre,
+                    Apellido = p.Pacientes.Apellido,
+                    Telefono = p.Pacientes.Telefono,
+                    FechaNacimiento = p.Pacientes.FechaNacimiento,
+                    Vacuna = p.Vacunas.Marca,
+                    Provincia = p.Provincias.Nombre,
+                    Signo = p.Signozodiacal.Signo,
+                    FechaPrimeraVacuna = p.Pacientes.FechaPrimeraVacuna,
+                    FechaSegundaVacuna = p.Pacientes.FechaSegundaVacuna,
+                    cedula = p.Pacientes.cedula
+                }
+            ).ToList();
+    }
+}
