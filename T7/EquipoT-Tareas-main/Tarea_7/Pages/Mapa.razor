@@ -1,0 +1,28 @@
+@page "/Mapa"
+@using BlazorLeaflet
+@using BlazorLeaflet.Models
+@using BlazorLeaflet.Models.Events
+@using Shared
+@inject IJSRuntime jsr
+
+<div id="mapContainer" style="width: 300px; height: 300px;">
+   <LeafletMap Map="_map" />
+</div>
+
+@code{
+    private Map _map = null;
+ protected override void OnInitialized() {
+     _map = new Map(jsr){
+            Center = new LatLng(18.9f, -70f),
+            Zoom = 7.47f
+        };
+
+         _map.OnInitialized += () => {
+            _map.AddLayer(new TileLayer {                
+                UrlTemplate = "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                Attribution = "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors",
+            });
+         };
+         }
+
+}
