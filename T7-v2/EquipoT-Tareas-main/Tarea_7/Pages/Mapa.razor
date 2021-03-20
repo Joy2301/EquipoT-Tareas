@@ -1,0 +1,92 @@
+@page "/Mapa"
+@using Tarea_7.Models
+@using BlazorLeaflet
+@using BlazorLeaflet.Models
+@using BlazorLeaflet.Models.Events
+@using Shared
+@inject IJSRuntime jsr
+
+
+<br>
+<h4>Mapa</h4>
+<div id="mapContainer" style="width: 500px; height: 300px;">
+   <LeafletMap Map="_map" />
+</div>
+
+<br>
+@if(paciente != null){
+    <h4 align = "center">Paciente</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Vacuna 1</th>
+      <th scope="col">Vacuna 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">@paciente.Id</th>
+      <td>@paciente.cedula</td>
+      <td>@paciente.Nombre</td>
+      <td>@paciente.FechaPrimeraVacuna</td>
+      <td>@paciente.FechaSegundaVacuna</td>
+    </tr>
+    
+  </tbody>
+</table>
+}
+
+@code{
+    private Map _map = null;
+    private Pacientes paciente = null;
+    private List<Pacientes> pacientes = null;
+
+
+
+ protected override void OnInitialized() {
+     vacunadosrdContext bd = new vacunadosrdContext();
+
+     pacientes = bd.Pacientes.ToList();
+     _map = new Map(jsr){
+            Center = new LatLng(18.9f, -70f),
+            Zoom = 7.47f
+        };
+
+         _map.OnInitialized += () => {
+            _map.AddLayer(new TileLayer {                
+                UrlTemplate = "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                Attribution = "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors",
+            });
+             foreach(var p in pacientes){
+            
+
+                var marker = new Marker(p.latitud, p.longitud) {
+                    Title = p.Id.ToString(),
+                    RiseOnHover = true,
+                    Tooltip = new Tooltip() {
+                        Content = $"{p.cedula}",
+                        IsPermanent = true
+                    }
+                };
+
+                marker.OnClick += (InteractiveLayer sender, MouseEvent e) => {
+                    var marker = (Marker) sender;
+
+                    paciente = bd.Pacientes.First(x => x.Id == Convert.ToInt32(marker.Title));
+
+                    StateHasChanged();
+                };
+
+                _map.AddLayer(marker);
+            }
+         };
+
+       
+        
+
+         }
+
+}
