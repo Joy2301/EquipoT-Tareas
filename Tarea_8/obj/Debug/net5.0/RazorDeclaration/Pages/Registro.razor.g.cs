@@ -140,11 +140,13 @@ using System.IO;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 107 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_8\Pages\Registro.razor"
+#line 131 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\Tarea_8\Pages\Registro.razor"
        
     public Pacientes pacientes = new Pacientes();
     public string EstadoVacunas { get; set; } = "";
     public string EstadoFechaSegundaVacuna { get; set; } = "";
+    int ProvinciaIdUbicacion = 1;
+    public int MunicipioIdUbicacion { get; set; }
 
     protected async Task SavePaciente()
     {
@@ -307,6 +309,7 @@ using System.IO;
                 else
                     pacientes.SignoId = 12; //Capricornio
                 break;
+                
         }
     }
 
@@ -366,31 +369,7 @@ using System.IO;
         return vacunas;
     }
 
-    /*List<Vacunas> ListaVacunas = new List<Vacunas>() {      new Vacunas (1, "AstraZeneca"),
-                                                            new Vacunas (2, "Novavax"),
-                                                            new Vacunas (3, "Moderna"),
-                                                            };
-    public class Vacunas
-    {
-        public Vacunas(int id, string nombre)
-        {
-            Id = id;
-            Nombre = nombre;
-        }
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-    }*/
-
-
-    /* Podria crear una tabla municipios, haciendo foreing key con provincias en mysql
-        cada provincia tiene su numero y esta ligado a sus municipios,
-        Creo un combobox de municipio, y hago join con provincias
-        agrupando por el id de provincia y asi al recorrer esa lista en el combobox
-        solo me traera los municipios de esa provincia.
-    */
-
-
-    /*-------------------Variables y lista para el combobox de las provincias-------------------*/
+    /*-------------------Variables y lista para el combobox de las provincias y municipios-------------------*/
 
     public List<Provincias> GetProvincias()
     {
@@ -399,6 +378,43 @@ using System.IO;
         var provincias = context.Provincias.ToList();
 
         return provincias;
+    }
+
+    public class VistaMunicipios
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int ProvinciaId { get; set; }
+        public float Latitud { get; set; }
+        public float Longitud { get; set; }
+    }
+
+    /*
+    Hago Join de la tabla municipio a provincias
+    pero solo traigo los que son especificos de su provincia
+    al seleccionarse en el combobox de provincias
+    */
+    List<VistaMunicipios> GetMunicipios()
+    {
+        var context = new vacunadosrdv2Context();
+
+        return context.Municipios
+            .Join(
+                context.Provincias,
+                m => m.ProvinciaId,
+                p => p.Id,
+                (m, p) => new { Municipios = m, Provincias = p }
+            )
+            .Where(All => All.Municipios.ProvinciaId == ProvinciaIdUbicacion)
+            .Select(
+                m => new VistaMunicipios{
+                    Id = m.Municipios.Id,
+                    Nombre = m.Municipios.Nombre,
+                    Latitud = m.Municipios.Latitud,
+                    Longitud = m.Municipios.Longitud
+                    
+                }
+            ).ToList();
     }
 
     /*-------------------Variables y lista para el combobox de las Vacunas-------------------*/

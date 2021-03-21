@@ -23,6 +23,7 @@ namespace Tarea_8.Models
         public virtual DbSet<Provincias> Provincias { get; set; }
         public virtual DbSet<Signozodiacal> Signozodiacal { get; set; }
         public virtual DbSet<Vacunas> Vacunas { get; set; }
+        public virtual DbSet<Municipios> Municipios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -153,6 +154,32 @@ namespace Tarea_8.Models
                     .HasColumnType("varchar(100)")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_general_ci");
+            });
+
+            modelBuilder.Entity<Municipios>(entity =>
+            {
+                entity.ToTable("municipios");
+
+                entity.HasIndex(e => e.ProvinciaId)
+                    .HasName("ProvinciaId");
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasColumnType("varchar(100)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_general_ci");
+                
+                entity.Property(e => e.ProvinciaId).HasColumnType("int(11)");
+
+                entity.Property(e => e.Latitud)
+                    .HasColumnName("latitud")
+                    .HasColumnType("float(100,30)");
+
+                entity.Property(e => e.Longitud)
+                    .HasColumnName("longitud")
+                    .HasColumnType("float(100,30)");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -448,39 +448,6 @@
         }
       },
       {
-        "HashCode": -2013122926,
-        "Kind": "Components.Component",
-        "Name": "Tarea_8.Pages.PacientesLista",
-        "AssemblyName": "Tarea_8",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "PacientesLista"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_8.Pages.PacientesLista"
-        }
-      },
-      {
-        "HashCode": -1911790291,
-        "Kind": "Components.Component",
-        "Name": "Tarea_8.Pages.PacientesLista",
-        "AssemblyName": "Tarea_8",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_8.Pages.PacientesLista"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_8.Pages.PacientesLista",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -1175268650,
         "Kind": "Components.Component",
         "Name": "Tarea_8.Pages.Registro",
@@ -510,6 +477,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea_8.Pages.Registro",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2013122926,
+        "Kind": "Components.Component",
+        "Name": "Tarea_8.Pages.PacientesLista",
+        "AssemblyName": "Tarea_8",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PacientesLista"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_8.Pages.PacientesLista"
+        }
+      },
+      {
+        "HashCode": -1911790291,
+        "Kind": "Components.Component",
+        "Name": "Tarea_8.Pages.PacientesLista",
+        "AssemblyName": "Tarea_8",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_8.Pages.PacientesLista"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_8.Pages.PacientesLista",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
