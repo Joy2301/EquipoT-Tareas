@@ -12,233 +12,35 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -230787556,
+        "HashCode": 862272977,
         "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.PacientesLista",
+        "Name": "Tarea_7.Pages.Configuracion",
         "AssemblyName": "Tarea_7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "PacientesLista"
+            "TagName": "Configuracion"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.PacientesLista"
+          "Common.TypeName": "Tarea_7.Pages.Configuracion"
         }
       },
       {
-        "HashCode": 364983368,
+        "HashCode": 1684535751,
         "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.PacientesLista",
+        "Name": "Tarea_7.Pages.Configuracion",
         "AssemblyName": "Tarea_7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea_7.Pages.PacientesLista"
+            "TagName": "Tarea_7.Pages.Configuracion"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.PacientesLista",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1594180448,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VMarcas",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "VMarcas"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VMarcas"
-        }
-      },
-      {
-        "HashCode": 1873571363,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VMarcas",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.VMarcas"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VMarcas",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 2145422595,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VacunadosPorZodiaco",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "VacunadosPorZodiaco"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VacunadosPorZodiaco"
-        }
-      },
-      {
-        "HashCode": -447236561,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VacunadosPorZodiaco",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.VacunadosPorZodiaco"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VacunadosPorZodiaco",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -640285642,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.DropVacuna",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "DropVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.DropVacuna"
-        }
-      },
-      {
-        "HashCode": 1552407005,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.DropVacuna",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.DropVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.DropVacuna",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1345399985,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VProvincia",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "VProvincia"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VProvincia"
-        }
-      },
-      {
-        "HashCode": -1590317730,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VProvincia",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.VProvincia"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VProvincia",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1913987728,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.RegistroConfiguracionProvincia",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "RegistroConfiguracionProvincia"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.RegistroConfiguracionProvincia"
-        }
-      },
-      {
-        "HashCode": -759063303,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.RegistroConfiguracionProvincia",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.RegistroConfiguracionProvincia"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.RegistroConfiguracionProvincia",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -969988869,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.Zodiacal",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Zodiacal"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.Zodiacal"
-        }
-      },
-      {
-        "HashCode": -544768882,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.Zodiacal",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.Zodiacal"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.Zodiacal",
+          "Common.TypeName": "Tarea_7.Pages.Configuracion",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -296,72 +98,6 @@
         }
       },
       {
-        "HashCode": -1203020742,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.RegistroConfiguracionVacuna",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "RegistroConfiguracionVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.RegistroConfiguracionVacuna"
-        }
-      },
-      {
-        "HashCode": -1856304605,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.RegistroConfiguracionVacuna",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.RegistroConfiguracionVacuna"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.RegistroConfiguracionVacuna",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -419754019,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.ListaConfiguracionVacunas",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ListaConfiguracionVacunas"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.ListaConfiguracionVacunas"
-        }
-      },
-      {
-        "HashCode": 1322356331,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.ListaConfiguracionVacunas",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.ListaConfiguracionVacunas"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.ListaConfiguracionVacunas",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -403305301,
         "Kind": "Components.Component",
         "Name": "Tarea_7.Pages.ConfiguracionVacunas",
@@ -415,35 +151,299 @@
         }
       },
       {
-        "HashCode": 862272977,
+        "HashCode": -640285642,
         "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.Configuracion",
+        "Name": "Tarea_7.Pages.DropVacuna",
         "AssemblyName": "Tarea_7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Configuracion"
+            "TagName": "DropVacuna"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.Configuracion"
+          "Common.TypeName": "Tarea_7.Pages.DropVacuna"
         }
       },
       {
-        "HashCode": 1684535751,
+        "HashCode": 1552407005,
         "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.Configuracion",
+        "Name": "Tarea_7.Pages.DropVacuna",
         "AssemblyName": "Tarea_7",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea_7.Pages.Configuracion"
+            "TagName": "Tarea_7.Pages.DropVacuna"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.Configuracion",
+          "Common.TypeName": "Tarea_7.Pages.DropVacuna",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -419754019,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.ListaConfiguracionVacunas",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ListaConfiguracionVacunas"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.ListaConfiguracionVacunas"
+        }
+      },
+      {
+        "HashCode": 1322356331,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.ListaConfiguracionVacunas",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.ListaConfiguracionVacunas"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.ListaConfiguracionVacunas",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -230787556,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.PacientesLista",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PacientesLista"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.PacientesLista"
+        }
+      },
+      {
+        "HashCode": 364983368,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.PacientesLista",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.PacientesLista"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.PacientesLista",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1913987728,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.RegistroConfiguracionProvincia",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RegistroConfiguracionProvincia"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.RegistroConfiguracionProvincia"
+        }
+      },
+      {
+        "HashCode": -759063303,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.RegistroConfiguracionProvincia",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.RegistroConfiguracionProvincia"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.RegistroConfiguracionProvincia",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1203020742,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.RegistroConfiguracionVacuna",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RegistroConfiguracionVacuna"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.RegistroConfiguracionVacuna"
+        }
+      },
+      {
+        "HashCode": -1856304605,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.RegistroConfiguracionVacuna",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.RegistroConfiguracionVacuna"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.RegistroConfiguracionVacuna",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2145422595,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VacunadosPorZodiaco",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VacunadosPorZodiaco"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VacunadosPorZodiaco"
+        }
+      },
+      {
+        "HashCode": -447236561,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VacunadosPorZodiaco",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.VacunadosPorZodiaco"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VacunadosPorZodiaco",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1345399985,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VProvincia",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VProvincia"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VProvincia"
+        }
+      },
+      {
+        "HashCode": -1590317730,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VProvincia",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.VProvincia"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VProvincia",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -969988869,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.Zodiacal",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Zodiacal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.Zodiacal"
+        }
+      },
+      {
+        "HashCode": -544768882,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.Zodiacal",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.Zodiacal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.Zodiacal",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1594180448,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VMarcas",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VMarcas"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VMarcas"
+        }
+      },
+      {
+        "HashCode": 1873571363,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VMarcas",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.VMarcas"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VMarcas",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -477,6 +477,92 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea_7.Pages.Registro",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 838088626,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.App",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.App"
+        }
+      },
+      {
+        "HashCode": 600097567,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.App",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.App",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 559463020,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Shared.SurveyPrompt",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "SurveyPrompt"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Title",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Title"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Shared.SurveyPrompt"
+        }
+      },
+      {
+        "HashCode": 1431550071,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Shared.SurveyPrompt",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Shared.SurveyPrompt"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Title",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Title"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Shared.SurveyPrompt",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -577,59 +663,6 @@
         }
       },
       {
-        "HashCode": 559463020,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Shared.SurveyPrompt",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "SurveyPrompt"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Title",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Title"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Shared.SurveyPrompt"
-        }
-      },
-      {
-        "HashCode": 1431550071,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Shared.SurveyPrompt",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Shared.SurveyPrompt"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Title",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Title"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Shared.SurveyPrompt",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -352339843,
         "Kind": "Components.Component",
         "Name": "Tarea_7.Shared.NavMenu",
@@ -659,39 +692,6 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea_7.Shared.NavMenu",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 838088626,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.App",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.App"
-        }
-      },
-      {
-        "HashCode": 600097567,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.App",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

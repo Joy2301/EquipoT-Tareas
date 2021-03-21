@@ -1,0 +1,46 @@
+@page "/Configuracion"
+
+<div class="container">
+    <h1 class="display-6">Configuracion</h1>
+    <br>
+    <p>
+        Tambien puede modificar el inventario de vacunas
+    </p>
+    <a href="/ListaConfiguracionVacunas">Editar Vacunas</a>
+    <br>
+    <br>
+
+    <h4>Provincias:</h4>
+
+    <br>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Provincias Pr in GetProvincias())
+                {
+                    <tr>
+                        <td>@Pr.Nombre</td>
+                        <td><a href="ConfiguracionProvincia/@Pr.Id">Editar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+        <strong>Tambien puedes agregar una provincia</strong>
+        </p>
+        <a href="/RegistroConfiguracionProvincia">Agregar Provincia</a>
+        <br><br>
+        <br><br>
+    </div>
+</div>
+
+@code
+{
+    List<Provincias> GetProvincias() => new vacunadosrdv2Context().Provincias.ToList();
+}

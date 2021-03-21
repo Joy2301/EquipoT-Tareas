@@ -1,0 +1,377 @@
+@page "/"
+
+@inject NavigationManager NavigationManager
+@inject IPacienteService PacienteService
+
+<div class="container">
+    <h1 class="display-6">Registro de Pacientes</h1>
+    <br>
+    <p>
+        Utilize el formulario siguiente para registrar a los vacunados
+    </p>
+    <br>
+
+    <EditForm Model="@pacientes">
+        <table class="table">
+            <tr>
+                <td>Cedula:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@pacientes.cedula">
+                    <br>
+                    <input type="button" value="Verificar" class="btn btn-primary" @onclick="DatosApi">
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@pacientes.Nombre"></td>
+            </tr>
+            <tr>
+                <td>Apellido:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@pacientes.Apellido"></td>
+            </tr>
+            <tr>
+                <td>Telefono:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@pacientes.Telefono"></td>
+            </tr>
+            <tr>
+                <td>Fecha de Nacimiento:</td>
+                <td><InputDate class="form-control col-sm-4" @bind-Value="@pacientes.FechaNacimiento"/></td>
+            </tr>
+            <tr>
+                <td>Vacuna:</td>
+                <td>
+                    <InputSelect class="form-control col-sm-4" @bind-Value="@pacientes.VacunaId">
+                        <option value =0> Seleccione...</option>
+                        @foreach(var vacuna in GetVacunas())
+                        {
+                            <option value = "@vacuna.Id"> @vacuna.Marca </option>
+                        }
+                    </InputSelect>
+                    @EstadoVacunas
+                </td>
+            </tr>
+            <tr>
+                <td>Provincia:</td>
+                <td>
+                    <InputSelect class="form-control col-sm-4" @bind-Value="@pacientes.ProvinciaId">
+                        <option value =0>Seleccione... </option>
+                        @foreach(var provincia in GetProvincias())
+                        {
+                            <option value = "@provincia.Id"> @provincia.Nombre </option>
+                        }
+                    </InputSelect>
+                </td>
+            </tr>
+            <tr>
+                <td>Signo:</td>
+                <td>
+                    <InputSelect class="form-control col-sm-4" @bind-Value="@pacientes.SignoId">
+                        <option value =0> Seleccione... </option>
+                        @foreach(var signo in GetSignozodiacal())
+                        {
+                            <option value = "@signo.Id"> @signo.Signo </option>
+                        }
+                    </InputSelect>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Latitud:
+                    <input type="text" class="form-control col-sm-4" @bind="@pacientes.Latitud">
+                </td>
+                <td>Longitud:
+                    <input type="text" class="form-control col-sm-4" @bind="@pacientes.Longitud">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Fecha de la primera vacuna:</td>
+                <td><InputDate class="form-control col-sm-4" @bind-Value="@pacientes.FechaPrimeraVacuna"/>
+                <br/>
+                @EstadoFechaSegundaVacuna
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Guardar" class="btn btn-primary" @onclick="SavePaciente"/>
+                    <input type="button" value="Limpiar" class="btn btn-secondary" @onclick="Limpiar"/>
+                </td>
+            </tr>
+            
+
+        </table>
+    </EditForm>
+
+</div>
+
+@code {
+    public Pacientes pacientes = new Pacientes();
+    public string EstadoVacunas { get; set; } = "";
+    public string EstadoFechaSegundaVacuna { get; set; } = "";
+
+    protected async Task SavePaciente()
+    {
+        var context = new vacunadosrdv2Context();
+        var VacunaInventario = context.Vacunas.Where(v => v.Id == pacientes.VacunaId).FirstOrDefault(); //consulto por ID en la tabla 'vacunas'
+        
+        //Si no hay vacunas de una marca no permite el registro
+        if (VacunaInventario.Cantidad == 0)
+        {
+            EstadoVacunas = "No hay mas vacunas de esta marca";
+            Console.WriteLine("No hay mas vacunas de esta marca");
+        }
+        else
+        {
+            EstadoVacunas = "";
+            EstadoFechaSegundaVacuna = "";
+
+            /*  Si encuentra el registro y encuentra que la segunda fecha de la vacuna 
+            esta nula al momento de registrar, actualiza el campo con la fecha actual
+            */
+            bool ExisteRegistro = context.Pacientes.Any(p => p.cedula == pacientes.cedula);
+
+            if (ExisteRegistro == true)
+            {
+                var FechaSegundaVacuna = context.Pacientes.Where(p => p.cedula == pacientes.cedula).FirstOrDefault();
+        
+                if (FechaSegundaVacuna.FechaSegundaVacuna == null)
+                {
+                    FechaSegundaVacuna.FechaSegundaVacuna = DateTime.Now.Date;  //actualizas las propiedades de 'Cantidad'
+                    context.SaveChanges();  //guardas cambios
+
+                    Limpiar();
+                    DescontarVacuna();
+                    EstadoFechaSegundaVacuna = "Se registro la segunda vacuna de este paciente";
+                }
+                else
+                {
+                    EstadoFechaSegundaVacuna = "Este paciente ya ha recibido su segunda vacuna";
+                }
+            }
+            else
+            {
+                //Se registra el paciente
+                await PacienteService.SavePaciente(pacientes);
+
+                EstadoVacunas = "";
+                EstadoFechaSegundaVacuna = "";
+
+                Limpiar();
+                DescontarVacuna();
+
+                pacientes.VacunaId = 0;
+            }
+        }
+    }
+
+    /*-------------------Traemos los datos de la API a partir de la cedula-------------------*/
+        string Nombre{ get; set; }
+        string Apellidos{ get; set; }
+        string FechaNacimiento{ get; set; }
+        int DiaNacimiento{ get; set; }
+        int MesNacimiento{ get; set; }
+
+    public void DatosApi()
+    {
+        dynamic respuesta;
+
+        //El objeto de la clase donde estan los metodos para la Api
+        DBApi dBApi = new DBApi();
+        respuesta = dBApi.Get("https://api.adamix.net/apec/cedula/" + pacientes.cedula);
+
+        Nombre = respuesta.Nombres.ToString();
+        pacientes.Nombre = Nombre;
+
+        string Apellido1 = respuesta.Apellido1.ToString();
+        string Apellido2 = respuesta.Apellido2.ToString();
+        Apellidos = Apellido1 + " " + Apellido2; 
+        pacientes.Apellido = Apellidos;
+
+        FechaNacimiento = respuesta.FechaNacimiento.ToString();
+        var parsedDate = DateTime.Parse(FechaNacimiento);
+        pacientes.FechaNacimiento = parsedDate;
+
+        //Ahora obtendremos el signo zodiacal
+        MesNacimiento = Int16.Parse(FechaNacimiento.Substring(5,2));
+
+        DiaNacimiento = Int16.Parse(FechaNacimiento.Substring(8,2));
+
+        switch(MesNacimiento)
+        {
+            case 1: //Enero-Diciembre, con sus números respectivos del 1 al 12
+                if (DiaNacimiento < 21)
+                    pacientes.SignoId = 12; //Capricornio
+                else
+                    pacientes.SignoId = 1; //Acuario
+                break;
+            case 2: 
+                if (DiaNacimiento < 19)
+                    pacientes.SignoId = 1; //Acuario
+                else
+                    pacientes.SignoId = 2; //Piscis
+                break;
+            case 3:
+                if (DiaNacimiento < 21)
+                    pacientes.SignoId = 2; //Piscis
+                else
+                    pacientes.SignoId = 3; //Aries
+                break;
+            case 4:
+                if (DiaNacimiento < 21)
+                    pacientes.SignoId = 3; //Aries
+                else
+                    pacientes.SignoId = 4; //Tauro
+                break;
+            case 5:
+                if (DiaNacimiento < 22)
+                    pacientes.SignoId = 4; //Tauro
+                else
+                    pacientes.SignoId = 5; //Geminis
+                break;
+            case 6:
+                if (DiaNacimiento < 22)
+                    pacientes.SignoId = 5; //Geminis
+                else
+                    pacientes.SignoId = 6; //Cancer
+                break;
+            case 7:
+                if (DiaNacimiento < 23)
+                    pacientes.SignoId = 6; //Cancer
+                else
+                    pacientes.SignoId = 7; //Leo
+                break;
+            case 8:
+                if (DiaNacimiento < 24)
+                    pacientes.SignoId = 7; //Leo
+                else
+                    pacientes.SignoId = 8; //Virgo
+                break;
+            case 9:
+                if (DiaNacimiento < 24)
+                    pacientes.SignoId = 8; //Virgo
+                else
+                    pacientes.SignoId = 8; //Libra
+                break;
+            case 10:
+                if (DiaNacimiento < 24)
+                    pacientes.SignoId = 9; //Libra
+                else
+                    pacientes.SignoId = 10; //Escorpion
+                break;
+            case 11:
+                if (DiaNacimiento < 23)
+                    pacientes.SignoId = 10; //Escorpion
+                else
+                    pacientes.SignoId = 11; //Sagitario
+                break;
+            case 12:
+                if (DiaNacimiento < 22)
+                    pacientes.SignoId = 11; //Sagitario
+                else
+                    pacientes.SignoId = 12; //Capricornio
+                break;
+        }
+    }
+
+    //Con esta clase accedo a la url de la api y devuelvo sus datos
+    public class DBApi
+    {
+        public dynamic Get(string url)
+        {
+            HttpWebRequest myWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            myWebRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0";
+            //myWebRequest.CookieContainer = myCookie;
+            myWebRequest.Credentials = CredentialCache.DefaultCredentials;
+            myWebRequest.Proxy = null;
+            HttpWebResponse myHttpWebResponse = (HttpWebResponse)myWebRequest.GetResponse();
+            Stream myStream = myHttpWebResponse.GetResponseStream();
+            StreamReader myStreamReader = new StreamReader(myStream);
+            //Leemos los datos
+            string Datos = HttpUtility.HtmlDecode(myStreamReader.ReadToEnd());
+
+            dynamic data = JsonConvert.DeserializeObject(Datos);
+
+            return data;
+        }
+    }
+
+    public void Limpiar()
+    {
+        //Limpiamos los campos
+            pacientes.Nombre = "";
+            pacientes.Apellido = "";
+            pacientes.Telefono = "";
+            pacientes.FechaNacimiento = DateTime.Now.Date;
+            pacientes.ProvinciaId = 0;
+            pacientes.SignoId = 0;
+            pacientes.FechaPrimeraVacuna = DateTime.Now.Date;
+            pacientes.FechaSegundaVacuna = DateTime.Now.Date;
+    }
+
+    public void DescontarVacuna()
+    {
+        var context = new vacunadosrdv2Context();
+        var VacunaInventario = context.Vacunas.Where(v => v.Id == pacientes.VacunaId).FirstOrDefault(); //consulto por ID en la tabla 'vacunas'
+
+        //Vamos descontando la cantidad de vacunas que tenemos en la DB
+        VacunaInventario.Cantidad -= 1;  //actualizas las propiedades de 'Cantidad'
+        context.SaveChanges();  //guardas cambios
+    }
+
+    /*-------------------Variables y lista para el combobox de las Vacunas-------------------*/
+
+    public List<Vacunas> GetVacunas()
+    {
+        vacunadosrdv2Context context = new vacunadosrdv2Context();
+
+        var vacunas = context.Vacunas.ToList();
+
+        return vacunas;
+    }
+
+    /*List<Vacunas> ListaVacunas = new List<Vacunas>() {      new Vacunas (1, "AstraZeneca"),
+                                                            new Vacunas (2, "Novavax"),
+                                                            new Vacunas (3, "Moderna"),
+                                                            };
+    public class Vacunas
+    {
+        public Vacunas(int id, string nombre)
+        {
+            Id = id;
+            Nombre = nombre;
+        }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+    }*/
+
+
+    /* Podria crear una tabla municipios, haciendo foreing key con provincias en mysql
+        cada provincia tiene su numero y esta ligado a sus municipios,
+        Creo un combobox de municipio, y hago join con provincias
+        agrupando por el id de provincia y asi al recorrer esa lista en el combobox
+        solo me traera los municipios de esa provincia.
+    */
+
+
+    /*-------------------Variables y lista para el combobox de las provincias-------------------*/
+
+    public List<Provincias> GetProvincias()
+    {
+        vacunadosrdv2Context context = new vacunadosrdv2Context();
+
+        var provincias = context.Provincias.ToList();
+
+        return provincias;
+    }
+
+    /*-------------------Variables y lista para el combobox de las Vacunas-------------------*/
+
+    public List<Signozodiacal> GetSignozodiacal()
+    {
+        vacunadosrdv2Context context = new vacunadosrdv2Context();
+
+        var signo = context.Signozodiacal.ToList();
+
+        return signo;
+    }
+}

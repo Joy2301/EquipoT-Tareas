@@ -1,0 +1,46 @@
+@page "/RegistroConfiguracionVacuna"
+
+
+@inject IPacienteService PacienteService
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <h1 class="display-6">Agregar Vacuna</h1>
+    <br>
+
+    <EditForm Model="@vacunas">
+        <table class="table">
+            <tr>
+                <td>Marca:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@vacunas.Marca"></td>
+            </tr>
+            <tr>
+                <td>Cantidad:</td>
+                <td><input type="text" class="form-control col-sm-4" @bind="@vacunas.Cantidad"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Guardar" class="btn btn-primary" @onclick="InsertarVacuna">
+                    <input type="button" value="Cancelar" class="btn btn-secondary" @onclick="Cancelar">
+                </td>
+                
+            </tr>
+        </table>
+    </EditForm>
+
+</div>
+
+@code {
+    public Vacunas vacunas = new Vacunas();
+
+    protected async Task InsertarVacuna()
+    {
+        await PacienteService.InsertVacunas(vacunas);
+        NavigationManager.NavigateTo("/ListaConfiguracionVacunas");
+    }
+
+    protected void Cancelar()
+    {
+        NavigationManager.NavigateTo("/ListaConfiguracionVacunas");
+    }
+}

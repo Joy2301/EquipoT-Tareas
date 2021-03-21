@@ -1,0 +1,48 @@
+@page "/ListaConfiguracionVacunas"
+
+<div class="container">
+    <h1 class="display-6">Configuracion</h1>
+    <br>
+    <p>
+        Tambien puede modificar la lista de vacunas
+    </p>
+    <a href="/Configuracion">Editar Provincias</a>
+    <br>
+    <br>
+
+    <h4>Vacunas:</h4>
+
+    <br>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Vacunas V in GetVacunas())
+                {
+                    <tr>
+                        <td>@V.Marca</td>
+                        <td>@V.Cantidad</td>
+                        <td><a href="ConfiguracionVacunas/@V.Id">Editar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+        <strong>Tambien puedes agregar una Marca de Vacuna</strong>
+        </p>
+        <a href="/RegistroConfiguracionVacuna">Agregar Vacuna</a>
+        <br><br>
+        <br><br>
+    </div>
+</div>
+
+@code
+{
+    List<Vacunas> GetVacunas() => new vacunadosrdv2Context().Vacunas.ToList();
+}
