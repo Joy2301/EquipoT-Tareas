@@ -121,7 +121,9 @@
                 @Html.ValidationMessageFor(model => model.longitud, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div>
+            <input type="button" value="No sabe cual es su Latitud/Longitud?" onclick="window.open('@Url.Action("Listaprovincias")')"/>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
