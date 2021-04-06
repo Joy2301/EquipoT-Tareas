@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "RegistroExiste";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Upps. Se encontro un registro igual a este</h2>
+    <br />
+
+
+    <p>
+        <strong>
+            Al verificar los datos se encontro un registro que posee
+            la misma cedula que el que tratas de introducir, vuelve a registrar
+            los datos asegurandose de que no lo haya hecho antes. Gracias
+        </strong>
+    </p>
+
+    <br />
+    <img src="https://previews.123rf.com/images/carmenbobo/carmenbobo1305/carmenbobo130500077/19974995-sello-con-las-palabras-restringido-acceso-negado-en-el-interior-ilustraci%C3%B3n.jpg" width="400" height="400">
+    <br /><br />
+    <br /><br />
+
+    <p>
+        @Html.ActionLink("Regresar al Inicio", "Index", null, new { @class = "btn btn-info btn-lg", role = "button" })
+    </p>
+</div>

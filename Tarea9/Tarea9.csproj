@@ -190,6 +190,7 @@
     <Content Include="ModeloVacunados.edmx.diagram">
       <DependentUpon>ModeloVacunados.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -220,6 +221,8 @@
     <Content Include="Views\pacientes\Edit.cshtml" />
     <Content Include="Views\pacientes\Index.cshtml" />
     <Content Include="Views\pacientes\CreacionExitosa.cshtml" />
+    <Content Include="Views\pacientes\RegistroExiste.cshtml" />
+    <Content Include="Views\pacientes\ListaProvincias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

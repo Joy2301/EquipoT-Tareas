@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DB_A722D3_vacunadosrdv3Entities-Web.config Connection String" description="DB_A722D3_vacunadosrdv3Entities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/ModeloVacunados.csdl|res://*/ModeloVacunados.ssdl|res://*/ModeloVacunados.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=sql5103.site4now.net;initial catalog=DB_A722D3_vacunadosrdv3;user id=DB_A722D3_vacunadosrdv3_admin;password=Pulsera01;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre\ 5\\Trabajos\\EquipoT-Tareas\\Tarea9\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DB_A722D3_vacunadosrdv3Entities']/@connectionString" />
+  </parameter>
+</parameters>

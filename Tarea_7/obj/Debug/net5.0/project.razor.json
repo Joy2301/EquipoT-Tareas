@@ -12,6 +12,39 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
+        "HashCode": 614214267,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.Registro",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Registro"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.Registro"
+        }
+      },
+      {
+        "HashCode": -78182732,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.Registro",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.Registro"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.Registro",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 862272977,
         "Kind": "Components.Component",
         "Name": "Tarea_7.Pages.Configuracion",
@@ -349,6 +382,39 @@
         }
       },
       {
+        "HashCode": 1594180448,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VMarcas",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VMarcas"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VMarcas"
+        }
+      },
+      {
+        "HashCode": 1873571363,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.VMarcas",
+        "AssemblyName": "Tarea_7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.VMarcas"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.VMarcas",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 1345399985,
         "Kind": "Components.Component",
         "Name": "Tarea_7.Pages.VProvincia",
@@ -411,72 +477,6 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea_7.Pages.Zodiacal",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1594180448,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VMarcas",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "VMarcas"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VMarcas"
-        }
-      },
-      {
-        "HashCode": 1873571363,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.VMarcas",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.VMarcas"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.VMarcas",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 614214267,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.Registro",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Registro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.Registro"
-        }
-      },
-      {
-        "HashCode": -78182732,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.Registro",
-        "AssemblyName": "Tarea_7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.Registro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.Registro",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

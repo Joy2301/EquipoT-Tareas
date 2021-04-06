@@ -12,35 +12,35 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -1062129506,
+        "HashCode": -1175268650,
         "Kind": "Components.Component",
-        "Name": "Tarea_8.App",
+        "Name": "Tarea_8.Pages.Registro",
         "AssemblyName": "Tarea_8",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "App"
+            "TagName": "Registro"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_8.App"
+          "Common.TypeName": "Tarea_8.Pages.Registro"
         }
       },
       {
-        "HashCode": 1447538857,
+        "HashCode": -485947794,
         "Kind": "Components.Component",
-        "Name": "Tarea_8.App",
+        "Name": "Tarea_8.Pages.Registro",
         "AssemblyName": "Tarea_8",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Tarea_8.App"
+            "TagName": "Tarea_8.Pages.Registro"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_8.App",
+          "Common.TypeName": "Tarea_8.Pages.Registro",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -316,39 +316,6 @@
         }
       },
       {
-        "HashCode": -1175268650,
-        "Kind": "Components.Component",
-        "Name": "Tarea_8.Pages.Registro",
-        "AssemblyName": "Tarea_8",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Registro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_8.Pages.Registro"
-        }
-      },
-      {
-        "HashCode": -485947794,
-        "Kind": "Components.Component",
-        "Name": "Tarea_8.Pages.Registro",
-        "AssemblyName": "Tarea_8",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_8.Pages.Registro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_8.Pages.Registro",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -1416842095,
         "Kind": "Components.Component",
         "Name": "Tarea_8.Pages.RegistroConfiguracionProvincia",
@@ -543,6 +510,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea_8.Pages.Zodiacal",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1062129506,
+        "Kind": "Components.Component",
+        "Name": "Tarea_8.App",
+        "AssemblyName": "Tarea_8",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_8.App"
+        }
+      },
+      {
+        "HashCode": 1447538857,
+        "Kind": "Components.Component",
+        "Name": "Tarea_8.App",
+        "AssemblyName": "Tarea_8",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_8.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_8.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
