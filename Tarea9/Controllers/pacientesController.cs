@@ -168,7 +168,13 @@ namespace Tarea9.Controllers
             }
             return View(pacientes);
         }
-
+        
+        public ActionResult ListaProvincias()
+        {
+            var municipios = db.municipios.Include(p => p.provincias);
+            return View(municipios.ToList());
+        }
+        
         // POST: pacientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
