@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Tarea9.municipios>
+
+@{ ViewBag.Title = "ListaProvincias";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Lista de Municipios.</h2>
+<p>Aqui podra obtener informacion de su Municipio, y una idea de su Latitud y Longitud.</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProvinciaId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitud)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProvinciaId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Latitud)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Longitud)
+    </td>
+</tr>
+}
+
+</table>
+
