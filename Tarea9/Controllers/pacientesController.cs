@@ -10,11 +10,14 @@ using System.Net.Mail;
 using Tarea9;
 using System.Web.UI;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Tarea9.Controllers
 {
     public class pacientesController : Controller
     {
+        static String Cedula, Nombre, Apellido, Telefono, Correo, Direccion, Le_Dio_Covid, Justificacion;
+        static DateTime Fecha;
         private DB_A722D3_vacunadosrdv3Entities db = new DB_A722D3_vacunadosrdv3Entities();
 
         // GET: pacientes
@@ -44,7 +47,7 @@ namespace Tarea9.Controllers
         {
             ViewBag.ProvinciaId = new SelectList(db.provincias, "Id", "Nombre");
             ViewBag.TipoSangreId = new SelectList(db.TipoSangre, "Id", "Nombre");
-            pacientes.Correo = "ejemplo@hotmail.com";
+            pacientes.Correo = "ejemplo@gmail.com";
             pacientes.FechaNacimiento = DateTime.Now;
             return View(pacientes);
         }
@@ -56,6 +59,16 @@ namespace Tarea9.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Cedula,Nombre,Apellido,Telefono,Correo,FechaNacimiento,TipoSangreId,ProvinciaId,Direccion,Le_Dio_Covid,Justificacion,latitud,longitud")] pacientes pacientes)
         {
+            Cedula = pacientes.Cedula;
+            Nombre = pacientes.Nombre;
+            Apellido = pacientes.Apellido;
+            Telefono = pacientes.Telefono;
+            Correo = pacientes.Correo;
+            Fecha = pacientes.FechaNacimiento;
+            Direccion = pacientes.Direccion;
+            Le_Dio_Covid = pacientes.Le_Dio_Covid;
+            Justificacion = pacientes.Justificacion;
+
             bool ExisteRegistro = db.pacientes.Any(p => p.Cedula == pacientes.Cedula);
             if (ExisteRegistro == true)
             {
@@ -63,51 +76,7 @@ namespace Tarea9.Controllers
             }
             else
             {
-                //Cuerpo del correo enviado
-                string Body = "" +
-                    "<body>" +
-                    "<h3>La informacion registrada del paciente es la siguiente:</h3>" +
-                    "<br>" +
-                    "<p>" +
-                    "Cedula: " + pacientes.Cedula +
-                    "<br>" +
-                    "Nombre: " + pacientes.Nombre +
-                    "<br>" +
-                    "Apellido: " + pacientes.Apellido +
-                    "<br>" +
-                    "Telefono: " + pacientes.Telefono +
-                    "<br>" +
-                    "Correo " + pacientes.Correo +
-                    "<br>" +
-                    "Fecha de Nacimiento: " + pacientes.FechaNacimiento +
-                    "<br>" +
-                    "Direccion: " + pacientes.Direccion +
-                    "<br>" +
-                    "Le ha dado Covid antes: " + pacientes.Le_Dio_Covid +
-                    "<br>" +
-                    "Justifica que deben vacunarlo en casa porque: " + pacientes.Justificacion +
-                    "<br>" +
-                    "</p>" +
-                    "<h4>Estos datos son almacenados unicamente con fines medicos y seran tratados confidencialmente</h4>" +
-                    "</body>";
-
-                //Desde este correo seran enviados los datos
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new NetworkCredential("Pruebajoy2301@gmail.com", "Eljhonny");
-                smtp.EnableSsl = true;
-
-                //Este esel cuerpo del mensaje
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("Pruebajoy2301@gmail.com", "Vacunados COVID-19");
-                mail.To.Add(new MailAddress(pacientes.Correo));
-                mail.Subject = "Datos sobre el paciente";
-                mail.IsBodyHtml = true;
-                mail.Body = Body;
-
-                Debug.WriteLine("Enviaste el correo a" + pacientes.Correo);
-
-                //Lo enviamos
-                smtp.Send(mail);
+                EnviarEmail();
 
                 if (ModelState.IsValid)
                 {
@@ -115,11 +84,62 @@ namespace Tarea9.Controllers
                     db.SaveChanges();
                     return RedirectToAction("CreacionExitosa");
                 }
-            }
 
-            ViewBag.ProvinciaId = new SelectList(db.provincias, "Id", "Nombre", pacientes.ProvinciaId);
-            ViewBag.TipoSangreId = new SelectList(db.TipoSangre, "Id", "Nombre", pacientes.TipoSangreId);
-            return View(pacientes);
+                ViewBag.ProvinciaId = new SelectList(db.provincias, "Id", "Nombre", pacientes.ProvinciaId);
+                ViewBag.TipoSangreId = new SelectList(db.TipoSangre, "Id", "Nombre", pacientes.TipoSangreId);
+                return View(pacientes);
+            }
+        }
+
+        public static void EnviarEmail()
+        {
+            //Cuerpo del correo enviado
+            string Body = "" +
+                "<body>" +
+                "<h3>La informacion registrada del paciente es la siguiente:</h3>" +
+                "<br>" +
+                "<p>" +
+                "Cedula: " + Cedula +
+                "<br>" +
+                "Nombre: " + Nombre +
+                "<br>" +
+                "Apellido: " + Apellido +
+                "<br>" +
+                "Telefono: " + Telefono +
+                "<br>" +
+                "Correo " + Correo +
+                "<br>" +
+                "Fecha de Nacimiento: " + Fecha +
+                "<br>" +
+                "Direccion: " + Direccion +
+                "<br>" +
+                "Le ha dado Covid antes: " + Le_Dio_Covid +
+                "<br>" +
+                "Justifica que deben vacunarlo en casa porque: " + Justificacion +
+                "<br>" +
+                "</p>" +
+                "<h4>Estos datos son almacenados unicamente con fines medicos y seran tratados confidencialmente</h4>" +
+                "</body>";
+
+            //Desde este correo seran enviados los datos
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("Pruebajoy2301@gmail.com", "Eljhonny");
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+
+            //Este esel cuerpo del mensaje
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("Pruebajoy2301@gmail.com", "Vacunados COVID-19");
+            mail.To.Add(new MailAddress(Correo));
+            mail.Subject = "Datos sobre el paciente";
+            mail.IsBodyHtml = true;
+            mail.Body = Body;
+
+            //Debug.WriteLine("Enviaste el correo a" + pacientes.Correo);
+
+            //Lo enviamos
+            //smtp.Send(mail);
         }
 
         public ActionResult CreacionExitosa()

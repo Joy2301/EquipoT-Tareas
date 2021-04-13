@@ -4,7 +4,6 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    
 }
 
 
@@ -13,6 +12,7 @@
 @using System.Diagnostics;
 @using System.Net;
 @using System.Net.Mail;
+@using Tarea9.Controllers;
 
 <h2>Registrar Paciente</h2>
 
@@ -126,8 +126,8 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.longitud, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.longitud, "", new { @class = "text-danger" })
-                <br />
-                <input type="button" class="btn btn-secondary" value="No sabe cual es su Latitud/Longitud?" onclick="window.open('@Url.Action("Listaprovincias")')" />
+                @*<br />
+                    <input type="button" class="btn btn-secondary" value="No sabe cual es su Latitud/Longitud?" onclick="window.open('@Url.Action("Listaprovincias")')" />*@
             </div>
         </div>
 
@@ -146,11 +146,11 @@
 </div>
 
 @*using (Html.BeginForm("MiAction",
-                      "MiControlador",
-                      FormMethod.Post,
-                      new { onsubmit = "return  Validar();" }))*@
+    "MiControlador",
+    FormMethod.Post,
+    new { onsubmit = "return  Validar();" }))*@
 
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
