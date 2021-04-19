@@ -1,0 +1,120 @@
+@page "/Editar_Cobros"
+@page "/Editar_Cobros/{id:int}"
+@using ProyectoFinal.Models
+@inject NavigationManager NavigationManager
+
+<h4>Editar</h4>
+
+<EditForm Model="@reservacion">
+<div class="mb-3">
+   <label for="vehi" class="form-label">Seleccionar el vehiculo</label>
+<select class="form-select" aria-label="Default select example" id="vehi" @bind = "@reservacion.VehiculoId">
+  <option selected>Open this select menu</option>
+  @foreach (var item in GetVehiculos())
+  {
+    <option value="@item.Id">@item.Marca</option>  
+  }
+  
+  
+</select>
+  </div>
+  <div class="mb-3">
+<label for ="Client" class="form-label">Seleccionar el cliente</label>
+<select class="form-select" aria-label="Default select example" id="Client" @bind = "@reservacion.ClienteId">
+  <option selected>Open this select menu</option>
+  
+    @foreach (var item in GetClientes())
+  {
+    <option value="@item.Id">@item.Nombre</option>  
+  }
+  
+</select>
+  </div>
+
+
+  <div class="mb-3">
+<label for="F_inicial" class="form-label">Dia inicial de la reservacion</label>
+<InputDate  id = "F_inicial" @bind-Value = "@reservacion.FechaInicio"/>
+  </div>
+  <div class="mb-3">
+<label for="F_final" class="form-label">Dia final de la reservacion</label>
+<InputDate  id = "F_final" @bind-Value = "@reservacion.FechaFin"/>
+  </div>
+
+
+    
+
+
+
+</EditForm>
+
+<button class = "btn btn-primary" @onclick = "Registrar" >Guardar</button>
+<a class="btn btn-danger" href="/Modulo_Cobros">Cancelar</a>
+
+
+
+@code{
+    [Parameter]
+    public int id {get; set;}
+    Reservaciones reservacion = new Reservaciones();
+    gestion_vehicularContext db = new gestion_vehicularContext();
+
+
+  
+
+     protected override void OnInitialized() 
+ {
+     reservacion = db.Reservaciones.Where(x => x.Id == id).First();
+
+ }
+
+
+    
+
+
+    List<Vehiculos> GetVehiculos(){
+        gestion_vehicularContext bd = new gestion_vehicularContext();
+        return bd.Vehiculos.Where(x=> x.VehiculoDisponible == "Si").ToList();
+        
+        }
+
+List<Clientes> GetClientes(){
+        gestion_vehicularContext bd = new gestion_vehicularContext();
+        return bd.Clientes.ToList();
+        
+        }
+
+        async Task Registrar(){
+
+
+
+
+var compare_f = DateTime.Compare(reservacion.FechaInicio, DateTime.Now.Date);
+var compare_f2 = DateTime.Compare(reservacion.FechaInicio, reservacion.FechaFin);
+if(compare_f < 0 || compare_f2 > 0)
+{
+    return;
+}
+
+var auto = db.Vehiculos.Where(x => x.Id == reservacion.VehiculoId).First();
+var costo = auto.Precio;
+var dias = reservacion.FechaFin.Subtract(reservacion.FechaInicio).TotalDays;
+var resultado = costo * Convert.ToDecimal(dias);
+
+reservacion.MontoTotal = resultado;
+reservacion.Debe = resultado;
+reservacion.HaPagado = 0.0m;
+reservacion.FacturaPagada = "No";
+reservacion.VehiculoDevuelto = "No";
+
+
+
+
+ db.SaveChanges();
+NavigationManager.NavigateTo("/Modulo_Cobros");
+   
+}
+
+    
+}
+

@@ -1,0 +1,18 @@
+@page "/Eliminar_Cobros"
+@page "/Eliminar_Cobros/{id:int}"
+@using ProyectoFinal.Models
+@inject NavigationManager NavigationManager
+
+@code{
+
+    [Parameter]
+    public int id {get; set;}
+    protected override void OnInitialized() {
+        gestion_vehicularContext db = new gestion_vehicularContext();
+        var drop = db.Reservaciones.Where(x => x.Id == id);
+
+        db.Reservaciones.RemoveRange(drop);
+      db.SaveChanges();
+      NavigationManager.NavigateTo("/Modulo_Cobros");
+    }
+}

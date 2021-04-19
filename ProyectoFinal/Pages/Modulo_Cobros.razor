@@ -1,0 +1,71 @@
+@page "/Modulo_Cobros"
+@using ProyectoFinal.Models
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Matricula del vehiculo</th>
+      <th scope="col">Cliente</th>
+       <th scope="col">Fecha Inicial</th>
+      <th scope="col">Fecha Final</th>
+       <th scope="col">Monto Total</th>
+      <th scope="col">Debe</th>
+      <th scope="col">Ha pagado</th>
+      <th scope="col">Factura Pagada?</th>
+    </tr>
+  </thead>
+   <tbody>
+       
+    @foreach (var item in GetReservaciones())
+    {
+         
+      
+      <tr>
+
+        <td>@item.Id</td>
+        <td>@GetVehiculos(@item.VehiculoId).Matricula</td>
+        <td>@GetClientes(@item.ClienteId).Nombre</td>
+        <td>@item.FechaInicio</td>
+        <td>@item.FechaFin</td>
+        <td>@item.MontoTotal</td>
+        <td>@item.Debe</td>
+        <td>@item.HaPagado</td>
+        <td>@item.FacturaPagada</td>
+        <td><a class = "btn btn-primary" href="/Cobros/@item.Id">Cobrar</a></td>
+        <td><a class = "btn btn-warning" href="/Editar_Cobros/@item.Id">Editar</a></td>
+        <td><a class = "btn btn-danger" href="/Eliminar_Cobros/@item.Id">Eliminar</a></td>
+        </tr>
+
+        
+    }
+         
+   </tbody>
+    </table>
+
+<a class = "btn btn-primary" href="/Registro_Reservaciones">Registrar</a>
+
+@code{
+    List<Reservaciones> GetReservaciones(){
+        
+        gestion_vehicularContext db = new gestion_vehicularContext();
+
+        return db.Reservaciones.ToList();
+        
+        }
+         Vehiculos GetVehiculos(int id){
+        
+        gestion_vehicularContext db = new gestion_vehicularContext();
+
+        return db.Vehiculos.Where(x => x.Id == id).First();
+        
+        }
+
+        Clientes GetClientes(int id){
+        
+        gestion_vehicularContext db = new gestion_vehicularContext();
+
+        return db.Clientes.Where(x => x.Id == id).First();
+        
+        }
+}
