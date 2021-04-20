@@ -1,0 +1,59 @@
+@page "/Cuentas/Register"
+
+@inject NavigationManager NavigationManager
+@inject IRegistroService RegistroService
+
+<div class="container">
+    <h1 class="display-6">Registro de Usuarios</h1>
+    <br>
+    <p>
+        Introduzca los datos de su cuenta
+    </p>
+    <br>
+<EditForm Model="@usuarios">
+    <table class="table">
+        <tr>
+            <td>Correo:</td>
+            <td><input type="email" class="form-control col-sm-4" @bind="@usuarios.Correo"></td>
+        </tr>
+        <tr>
+            <td>Contraseña:</td>
+            <td><input type="password" class="form-control col-sm-4" @bind-value="@usuarios.Clave"></td>
+        </tr>
+        <tr>
+            <input type="submit" value="Registrarse" class="btn btn-primary" @onclick="SaveRegistro"/>
+        </tr>
+    </table>
+</EditForm>
+
+    @EstadoUsuario
+</div>
+
+@code{
+    public Usuarios usuarios = new Usuarios();
+    public string Correo { get; set; }
+    public string Contraseña { get; set; }
+    public string EstadoUsuario { get; set; } = "";
+
+    protected async Task SaveRegistro()
+    {
+        Correo = usuarios.Correo;
+        Contraseña = usuarios.Clave;
+        if (Correo.Length > 0 && Contraseña.Length > 0)
+        {
+            usuarios.RolId = 2;
+            usuarios.UsuarioActivo = "Si";
+            await RegistroService.InsertUsuario(usuarios);
+
+            
+            EstadoUsuario = "Registrado Exitosamente";
+            usuarios.Correo = "";
+            usuarios.Clave = "";
+            NavigationManager.NavigateTo("/Cuentas/Login");
+        }
+        else
+        {
+            EstadoUsuario = "Debe llenar todos los campos";
+        }
+    }
+}

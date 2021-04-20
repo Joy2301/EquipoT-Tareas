@@ -514,39 +514,6 @@
         }
       },
       {
-        "HashCode": -1991005417,
-        "Kind": "Components.Component",
-        "Name": "Tarea_8.Pages.Registro",
-        "AssemblyName": "Tarea_8",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Registro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_8.Pages.Registro"
-        }
-      },
-      {
-        "HashCode": -1737030945,
-        "Kind": "Components.Component",
-        "Name": "Tarea_8.Pages.Registro",
-        "AssemblyName": "Tarea_8",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_8.Pages.Registro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_8.Pages.Registro",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -647701922,
         "Kind": "Components.Component",
         "Name": "Tarea_8.Shared.LeafletMap",

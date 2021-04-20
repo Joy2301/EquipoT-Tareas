@@ -1,0 +1,62 @@
+@page "/Cuentas/GestionUsuarios"
+
+
+<div class="container">
+    @if (Usuario.RolId == 1)
+    {
+    <h1 class="display-6">Gestionar Administradores</h1>
+    <br>
+    <p>
+        Ingresa el Correo de un usuario para volverlo Administrador
+    </p>
+    <br>
+    <table class="table">
+        <tr>
+            <td>Correo:</td>
+            <td>
+                <input type="email" class="form-control col-sm-4" @bind="@Correo">
+            </td>
+        </tr>
+        <tr>
+            <input type="button" value="Crear Administrador" class="btn btn-primary" @onclick="CrearAdministrador"/>
+        </tr>
+    </table>
+    @EstadoUsuario
+    }
+    else
+    {
+        <h1 class="display-6">Solo Un Administrador Puede Acceder a Estas opciones</h1>
+    }
+</div>
+
+@code{
+    public string Correo { get; set; }
+    public string EstadoUsuario { get; set; } = "";
+    public void CrearAdministrador()
+    {
+        if (Correo.Length > 0)
+        {
+            var context = new gestion_vehicularContext();
+            bool ExisteRegistro = context.Usuarios.Any(u => u.Correo == Correo);
+            if (ExisteRegistro == true)
+            {
+                var CorreUsuario = context.Usuarios.Where(u => u.Correo == Correo).FirstOrDefault(); //consulto por Correo en la tabla Usuarios
+
+                CorreUsuario.RolId = 1; //Actualizo el Rol del usuario
+                context.SaveChanges(); //Guardo los cambios
+                Correo = "";
+                EstadoUsuario = $"El usuario {Correo} ahora es un administrador";
+            }
+            else
+            {
+                EstadoUsuario = "El Correo ingresado no fue encontrado";
+            }
+        }
+        else
+        {
+            EstadoUsuario = "No puede dejar el campo en blanco";
+        }
+        
+        
+    }
+}

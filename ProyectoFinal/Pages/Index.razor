@@ -1,7 +1,40 @@
 @page "/"
 
-<h1>Hello, world!</h1>
+@inject NavigationManager NavigationManager
 
-Welcome to your new app.
+    @if (Usuario.correo != null && Usuario.contraseña != null)
+    {
+        <div class="container">
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+        
+            <h1>Hello, world!</h1>
+
+            Welcome to your new app.
+
+            @* <SurveyPrompt Title="How is Blazor working for you?" /> *@
+        </div>
+    }
+    else
+    {
+        <div class="container">
+
+            <h1>Hello, world!</h1>
+
+            <p>Welcome to your new app.</p> 
+            <br>
+
+            <p>
+                Ya tienes una cuenta? <a href="/Cuentas/Login">Iniciar sesion</a>
+            </p>
+            <p>
+                Si no tienes una cuenta <a href="/Cuentas/Register">Registrate</a>
+            </p>
+        </div>
+    }
+
+
+
+@code{
+    Usuario us = new Usuario();
+}
+

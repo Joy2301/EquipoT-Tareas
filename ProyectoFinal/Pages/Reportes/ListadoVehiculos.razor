@@ -1,0 +1,118 @@
+@page "/Reportes/ListadoVehiculos"
+
+@inject IJSRuntime JsRuntime
+
+@if (Usuario.correo != null && Usuario.contraseña != null)
+{
+    <div class="container">
+        <h1 class="display-6">Reporte - ListadoVehiculos</h1>
+        <br>
+        <p>
+            Seleccione un rango de fecha para mostrar los vehiculos disponibles
+        </p>
+        <br>
+
+        <input type="date" @bind="@FechaInicio" format-value="yyyy-mm-dd"/>
+        <br>
+        <input type="date" @bind="@FechaFin" format-value="yyyy-mm-dd"/>
+        <br>
+
+        <input type="button" value="Buscar" class="btn btn-primary" @onclick="Buscar"/>
+        <br>
+        @FechaInicio
+        @FechaFin
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Año</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in GetReservaciones())
+                    {
+                        <tr>
+                            <td>@r.Marca</td>
+                            <td>@r.Modelo</td>
+                            <td>@r.Color</td>
+                            <td>@r.Año</td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+        <input type="submit" value="Imprimir" class="btn btn-secondary" @onclick="Imprimir"/>
+        <br><br>
+    </div>
+}
+else
+{
+    <div class="container">
+        <h1 class="display-6">Debes Iniciar Sesion con un correo valido para Vizualizar el contenido</h1>
+        <br>
+        <p>
+            Ya tienes una cuenta? Inicia Sesion
+        </p>
+            <a href="/Cuentas/Login">Iniciar sesion</a>
+    </div>
+}
+
+@code{
+    public DateTime FechaInicio { get; set; } = DateTime.Now;
+    public DateTime FechaFin { get; set; } = DateTime.Now;
+
+    public void Buscar()
+    {
+
+    //var unionList = GetVehiculos.Concat(nose).ToList();
+    //var unionList = GetVehiculos.AddRange(nose).Distinct().ToList();
+
+    
+    /*List<Reservaciones> GetReservaciones = new gestion_vehicularContext().Reservaciones.Where(
+        F => F.FechaInicio == FechaInicio && F.FechaFin == FechaFin).ToList();*/
+    }
+    
+
+    
+    List<Vehiculos> GetVehiculos => new gestion_vehicularContext().Vehiculos.ToList();
+    
+    //Clase para modelar los datos del Join
+    public class VistaVehiculos
+    {
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public short Año { get; set; }
+        public string Color { get; set; }
+        public decimal Beneficio { get; set; }
+    }
+
+    List<VistaVehiculos> GetReservaciones()
+        {
+            var context = new gestion_vehicularContext();
+
+            return context.Reservaciones
+                    .Join(
+                        context.Vehiculos,
+                        r => r.VehiculoId,
+                        v => v.Id,
+                        (r, v) => new {Reservaciones = r, Vehiculos = v}
+                    )
+                    .Where(All => !(All.Reservaciones.FechaInicio >= FechaInicio && All.Reservaciones.FechaFin <= FechaFin))
+                    .Select(
+                        r => new VistaVehiculos{
+                            Marca = r.Vehiculos.Marca,
+                            Modelo = r.Vehiculos.Modelo,
+                            Año = r.Vehiculos.Año,
+                            Color = r.Vehiculos.Color
+                        }
+                    ).ToList();
+
+                   
+        }
+
+        async Task Imprimir()
+        {
+            await JsRuntime.InvokeVoidAsync("imprimir");
+        }
+}

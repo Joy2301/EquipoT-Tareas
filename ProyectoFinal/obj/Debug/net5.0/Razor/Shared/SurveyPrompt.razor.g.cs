@@ -4,7 +4,6 @@
 namespace ProyectoFinal.Shared
 {
     #line hidden
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -75,6 +74,55 @@ using ProyectoFinal;
 #nullable restore
 #line 10 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using ProyectoFinal.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+using ProyectoFinal.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+using ProyectoFinal.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+using BlazorLeaflet;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+using BlazorLeaflet.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+using BlazorLeaflet.Models.Events;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+using ProyectoFinal.Data.AdministracionUsuarios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 17 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+using System;
 
 #line default
 #line hidden

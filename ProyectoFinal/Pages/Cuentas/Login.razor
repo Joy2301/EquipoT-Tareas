@@ -1,0 +1,61 @@
+@page "/Cuentas/Login"
+
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <h1 class="display-6">Inicion de Sesion</h1>
+    <br>
+    <p>
+        Introduzca los datos de su cuenta
+    </p>
+    <br>
+
+    <table class="table">
+        <tr>
+            <td>Correo:</td>
+            <td><input type="email" class="form-control col-sm-4" @bind="@Correo"></td>
+        </tr>
+        <tr>
+            <td>Contraseña:</td>
+            <td><input type="password" class="form-control col-sm-4" @bind="@Contraseña"></td>
+        </tr>
+        <tr>
+            <input type="button" value="Iniciar Sesion" class="btn btn-primary" @onclick="InicioSesion"/>
+        </tr>
+    </table>
+    @EstadoUsuario
+</div>
+
+@code{
+    public string Correo { get; set; }
+    public string Contraseña { get; set; }
+    public string EstadoUsuario { get; set; } = "";
+
+    public void InicioSesion()
+    {
+        var context = new gestion_vehicularContext();
+        var UsuarioActual = context.Usuarios.Where(u => u.Correo == Correo && u.Clave == Contraseña).FirstOrDefault();
+        bool ExisteRegistro = context.Usuarios.Any(u => u.Correo == Correo && u.Clave == Contraseña);
+
+        if (ExisteRegistro == true)
+        {
+            if (UsuarioActual != null)
+            {
+                Usuario.correo = UsuarioActual.Correo;
+                Usuario.contraseña = UsuarioActual.Clave;
+                Usuario.RolId = UsuarioActual.RolId;
+                
+                NavigationManager.NavigateTo("/");
+            }
+            else
+            {
+                EstadoUsuario = "El usuario o la Contraseña ingresada son incorrectos";
+            }
+        }
+        else
+        {
+            EstadoUsuario = "El usuario o la Contraseña ingresada son incorrectos";
+        }
+        
+    }
+}

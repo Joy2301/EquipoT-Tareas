@@ -12,8 +12,8 @@ namespace ProyectoFinal.Models
         public int Id { get; set; }
         public int VehiculoId { get; set; }
         public int ClienteId { get; set; }
-        public DateTime? FechaInicio { get; set; }
-        public DateTime? FechaFin { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
         public decimal MontoTotal { get; set; }
         public decimal Debe { get; set; }
         public decimal HaPagado { get; set; }

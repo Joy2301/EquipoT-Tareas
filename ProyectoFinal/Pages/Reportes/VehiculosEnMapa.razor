@@ -1,0 +1,148 @@
+@page "/Reportes/VehiculosEnMapa"
+
+@inject IJSRuntime jsr
+
+@if (Usuario.correo != null && Usuario.contraseña != null)
+{
+<div class="container">
+    <h1 class="display-6">Reporte - Vehiculos En el Mapa</h1>
+    <br>
+    <p>
+        Aqui puede Visualizar todos los vehiculos en el mapa
+    </p>
+    <br>
+
+    <div id="mapContainer" style="width: 700px; height: 300px;">
+        <LeafletMap Map="_map" />
+    </div>
+    <br>
+
+    <p>
+        Listado de vehiculos:
+    </p>
+    <br>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Matricula</th>
+                <th>Color</th>
+                <th>Año</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in GetVehiculos())
+                {
+                    <tr>
+                        <td>@r.Marca</td>
+                        <td>@r.Modelo</td>
+                        <td>@r.Matricula</td>
+                        <td>@r.Color</td>
+                        <td>@r.Año</td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+</div>
+}
+else
+{
+    <div class="container">
+        <h1 class="display-6">Debes Iniciar Sesion con un correo valido para Vizualizar el contenido</h1>
+        <br>
+        <p>
+            Ya tienes una cuenta? Inicia Sesion
+        </p>
+            <a href="/Cuentas/Login">Iniciar sesion</a>
+    </div>
+}
+
+@code{
+    private Map _map = null;
+    //Clase para modelar los datos del Join
+    public class VistaVehiculos
+    {
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Matricula { get; set; }
+        public short Año { get; set; }
+        public string Color { get; set; }
+        public DateTime? FechaInicio { get; set; }
+        public float Latitud { get; set; }
+        public float Longitud { get; set; }
+    }
+
+    List<VistaVehiculos> GetReservaciones()
+        {
+            var context = new gestion_vehicularContext();
+
+            return context.Reservaciones
+                    .Join(
+                        context.Vehiculos,
+                        r => r.VehiculoId,
+                        v => v.Id,
+                        (r, v) => new {Reservaciones = r, Vehiculos = v}
+                    )
+                    .Select(
+                        r => new VistaVehiculos{
+                            Marca = r.Vehiculos.Marca,
+                            Modelo = r.Vehiculos.Modelo,
+                            Año = r.Vehiculos.Año,
+                            Color = r.Vehiculos.Color,
+                            Latitud = r.Vehiculos.Latitud,
+                            Longitud = r.Vehiculos.Longitud,
+                            Matricula = r.Vehiculos.Matricula,
+                            FechaInicio = r.Reservaciones.FechaInicio
+                        }
+                    ).ToList();
+        }
+        List<Vehiculos> GetVehiculos() => new gestion_vehicularContext().Vehiculos.ToList();
+
+
+    protected override void OnInitialized() 
+        {
+            gestion_vehicularContext bd = new gestion_vehicularContext();
+
+            _map = new Map(jsr){
+                    Center = new LatLng(18.9f, -70f),
+                    Zoom = 7.47f
+                };
+
+                _map.OnInitialized += () => {
+                    _map.AddLayer(new TileLayer {                
+                        UrlTemplate = "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        Attribution = "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors",
+                    });
+                    foreach(var v in GetVehiculos()){
+                    
+
+                        var marker = new Marker(v.Latitud, v.Longitud) {
+                            Title = v.Modelo,
+                            RiseOnHover = true,
+                            Popup = new Popup(){
+                                Content = $"{v.Marca} "+
+                                            $"{v.Modelo} </br> "+
+                                            $"Matricula {v.Matricula} </br> "+
+                                            $"Color {v.Color} </br> "+
+                                            $"{v.Año} </br></br> "+
+                                            $"Citas: </br> "
+                                }
+                        };
+
+                        marker.OnClick += (InteractiveLayer sender, MouseEvent e) => {
+                            
+                            //var marker = (Marker) sender;
+
+                            //var Coche = bd.Vehiculos.First(x => x.Id == Convert.ToInt32(marker.Title));
+                            
+
+                            //StateHasChanged();
+                        };
+
+                        _map.AddLayer(marker);
+                    }
+                };
+        }
+}

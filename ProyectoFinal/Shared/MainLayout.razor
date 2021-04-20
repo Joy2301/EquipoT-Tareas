@@ -1,5 +1,7 @@
 @inherits LayoutComponentBase
 
+@inject NavigationManager NavigationManager
+
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -7,7 +9,30 @@
 
     <div class="main">
         <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            @if (Usuario.correo != null && Usuario.contraseña != null)
+            {
+            <table>
+                    <tr>
+                        <th>@Usuario.correo</th>
+                        @if (Usuario.RolId == 1)
+                        {
+                            <td>
+                                <a href="/Cuentas/GestionUsuarios">Gestion Usuarios</a>
+                            </td>
+                        }
+                        <td>
+                            <input type="button" value="Cerrar Sesion" class="btn btn-secondary" @onclick="CerrarSesion"/>
+                        </td>
+                    </tr>
+            </table>
+            }
+            else
+            {
+                <a href="/Cuentas/Login">Iniciar sesion</a>
+                <a href="/Cuentas/Register">Registrarse</a>
+            }
+            
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">Acerca De</a>
         </div>
 
         <div class="content px-4">
@@ -15,3 +40,13 @@
         </div>
     </div>
 </div>
+
+@code{
+    Usuario us = new Usuario();
+    private void CerrarSesion()
+    {
+        Usuario.correo = null;
+        Usuario.contraseña = null;
+        NavigationManager.NavigateTo("/");
+    }
+}

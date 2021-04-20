@@ -1,0 +1,112 @@
+@page "/Reportes/ListadoBeneficios"
+
+@inject IJSRuntime JsRuntime
+
+@if (Usuario.correo != null && Usuario.contraseña != null)
+{
+    <div class="container">
+        <h1 class="display-6">Reporte - ListadoBeneficios</h1>
+        <br>
+        <p>
+            Estos son los beneficios generados por cada vehiculo
+        </p>
+        <br>
+        <input type="submit" value="Imprimir" class="btn btn-secondary" @onclick="Imprimir"/>
+        <br><br>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Datos</th>
+                    <th># de Veces reservado</th>
+                    <th>Beneficio Generado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in GetBeneficios())
+                    {
+                        <tr>
+                            <td>@r.Matricula</td>
+                            <td>@r.Count</td>
+                            <td>@r.Beneficio</td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+        
+    </div>
+}
+else
+{
+    <div class="container">
+        <h1 class="display-6">Debes Iniciar Sesion con un correo valido para Vizualizar el contenido</h1>
+        <br>
+        <p>
+            Ya tienes una cuenta? Inicia Sesion
+        </p>
+            <a href="/Cuentas/Login">Iniciar sesion</a>
+    </div>
+}
+
+
+
+@code{
+    Usuario us = new Usuario();
+    public string correo { get; set; } = null;
+    public string contraseña { get; set; } = null;
+
+    //static List<Usuarios> GetUsuarioActual => new gestion_vehicularContext().Usuarios.Where(u => u.Correo == correo && u.Clave == contraseña).ToList();
+    
+    public void ConsultarUsuario()
+    {
+    }
+    static List<Usuarios> GetReservaciones()
+    {
+        var context = new gestion_vehicularContext();
+
+        return context.Usuarios.Where(u => u.Correo == Usuario.correo && u.Clave == Usuario.contraseña).ToList();
+    }
+    bool ExisteRegistro = GetReservaciones().Any(u => u.Correo == Usuario.correo && u.Clave == Usuario.contraseña);
+    public class VistaVehiculos
+    {
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Matricula { get; set; }
+        public short Año { get; set; }
+        public string Color { get; set; }
+        public decimal Beneficio { get; set; }
+        public int Count { get; set; }
+    }
+
+        List<VistaVehiculos> GetBeneficios()
+            {
+                var context = new gestion_vehicularContext();
+
+                return context.Reservaciones
+                        .Join(
+                            context.Vehiculos,
+                            r => r.VehiculoId,
+                            v => v.Id,
+                            (r, v) => new {Reservaciones = r, Vehiculos = v}
+                        )
+                        .Where(All => All.Reservaciones.FacturaPagada == "No")
+                        .Select(
+                            r => new VistaVehiculos{
+                                Matricula = r.Vehiculos.Matricula + " - " + r.Vehiculos.Marca+ " " + r.Vehiculos.Modelo + " - " + r.Vehiculos.Año+ " - " + r.Vehiculos.Color,
+                                Beneficio = r.Reservaciones.HaPagado
+                            }
+                        )
+                        .GroupBy(g => g.Matricula)
+                        .Select(g => new VistaVehiculos {
+                            Matricula = g.Key,
+                            Count = g.Count(),
+                            Beneficio = g.Sum(c => c.Beneficio)
+                        })
+                        .ToList();
+            }
+
+        async Task Imprimir()
+        {
+            await JsRuntime.InvokeVoidAsync("imprimir");
+        }
+}

@@ -1,0 +1,111 @@
+@page "/Reservaciones/Registro_Reservaciones"
+@using ProyectoFinal.Models
+@inject NavigationManager NavigationManager
+
+<div class="container">
+  <h4>Registrar</h4>
+
+  <EditForm Model="@reservacion">
+  <div class="mb-3">
+    <label for="vehi" class="form-label">Seleccionar el vehiculo</label>
+  <select class="form-select" aria-label="Default select example" id="vehi" @bind = "@reservacion.VehiculoId">
+    <option selected>Open this select menu</option>
+    @foreach (var item in GetVehiculos())
+    {
+      <option value="@item.Id">@item.Marca</option>  
+    }
+    
+    
+  </select>
+    </div>
+    <div class="mb-3">
+  <label for ="Client" class="form-label">Seleccionar el cliente</label>
+  <select class="form-select" aria-label="Default select example" id="Client" @bind = "@reservacion.ClienteId">
+    <option selected>Open this select menu</option>
+    
+      @foreach (var item in GetClientes())
+    {
+      <option value="@item.Id">@item.Nombre</option>  
+    }
+    
+  </select>
+    </div>
+
+
+    <div class="mb-3">
+  <label for="F_inicial" class="form-label">Dia inicial de la reservacion</label>
+  <InputDate  id = "F_inicial" @bind-Value = "@reservacion.FechaInicio"/>
+    </div>
+    <div class="mb-3">
+  <label for="F_final" class="form-label">Dia final de la reservacion</label>
+  <InputDate  id = "F_final" @bind-Value = "@reservacion.FechaFin"/>
+    </div>
+  </EditForm>
+
+  <h6>@result</h6>
+  <button class = "btn btn-primary" @onclick = "Registrar" >Registrar</button>
+</div>
+
+
+@code{
+    Reservaciones reservacion = new Reservaciones();
+    string result = "";
+
+    protected override void OnInitialized() 
+    {
+      reservacion.FechaInicio = DateTime.Now.Date;
+      reservacion.FechaFin = DateTime.Now.Date;
+    }
+
+    List<Vehiculos> GetVehiculos()
+      {
+        gestion_vehicularContext bd = new gestion_vehicularContext();
+        return bd.Vehiculos.Where(x=> x.VehiculoDisponible == "Si").ToList();
+      }
+
+    List<Clientes> GetClientes()
+      {
+        gestion_vehicularContext bd = new gestion_vehicularContext();
+        return bd.Clientes.ToList();
+      }
+
+    async Task Registrar()
+    {
+      gestion_vehicularContext db = new gestion_vehicularContext();
+      var reservaciones1 = db.Reservaciones.Where(x => x.VehiculoId == reservacion.VehiculoId).ToList();
+
+      foreach(var item in reservaciones1){
+          if(reservacion.FechaInicio == item.FechaInicio || 
+          reservacion.FechaFin == item.FechaFin || 
+          reservacion.FechaInicio >= item.FechaInicio && reservacion.FechaInicio <= item.FechaFin ||
+          reservacion.FechaFin >= item.FechaInicio && reservacion.FechaFin <= item.FechaFin
+          ){
+              result = "Vehiculo ocupado en esta fecha";
+              return;
+          }
+      }
+
+      var compare_f = DateTime.Compare(reservacion.FechaInicio, DateTime.Now.Date);
+      var compare_f2 = DateTime.Compare(reservacion.FechaInicio, reservacion.FechaFin);
+      if(compare_f < 0 || compare_f2 > 0)
+      {
+          result = "Error en la fecha";
+          return;
+      }
+
+      var auto = db.Vehiculos.Where(x => x.Id == reservacion.VehiculoId).First();
+      var costo = auto.Precio;
+      var dias = reservacion.FechaFin.Subtract(reservacion.FechaInicio).TotalDays;
+      var resultado = costo * Convert.ToDecimal(dias);
+
+      reservacion.MontoTotal = resultado;
+      reservacion.Debe = resultado;
+      reservacion.HaPagado = 0.0m;
+      reservacion.FacturaPagada = "No";
+      reservacion.VehiculoDevuelto = "Si";
+
+      db.Reservaciones.Add(reservacion);
+      db.SaveChanges();
+      NavigationManager.NavigateTo("/Cobros/Modulo_Cobros");
+    }
+}

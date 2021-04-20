@@ -1,0 +1,93 @@
+@page "/Reportes/ClientesQueDeben"
+
+@inject IJSRuntime JsRuntime
+
+@if (Usuario.correo != null && Usuario.contraseña != null)
+{
+    <div class="container">
+        <h1 class="display-6">Reporte - Clientes que deben</h1>
+        <br>
+        <p>
+            Estos son los clientes que aun deben por la reservacion de un vehiculo
+        </p>
+        <br>
+        <input type="submit" value="Imprimir" class="btn btn-secondary" @onclick="Imprimir"/>
+        <br><br>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Datos</th>
+                    <th>Debe</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in GetReservaciones())
+                    {
+                        <tr>
+                            <td>@r.Cedula</td>
+                            <td>@r.Monto</td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+        
+    </div>
+}
+else
+{
+    <div class="container">
+        <h1 class="display-6">Debes Iniciar Sesion con un correo valido para Vizualizar el contenido</h1>
+        <br>
+        <p>
+            Ya tienes una cuenta? Inicia Sesion
+        </p>
+            <a href="/Cuentas/Login">Iniciar sesion</a>
+    </div>
+}
+
+@code{
+
+    
+    public class VistaClientes
+    {
+        public string Cedula { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public decimal Monto { get; set; }
+    }
+
+    List<VistaClientes> GetReservaciones()
+        {
+            var context = new gestion_vehicularContext();
+
+            return context.Reservaciones
+                    .Join(
+                        context.Clientes,
+                        r => r.ClienteId,
+                        c => c.Id,
+                        (r, c) => new {Reservaciones = r, Clientes = c}
+                    )
+                    .Where(All => All.Reservaciones.FacturaPagada == "No")
+                    .Select(
+                        r => new VistaClientes{
+                            Cedula = r.Clientes.Cedula + " - " + r.Clientes.Nombre + " " + r.Clientes.Apellido,
+                            Monto = r.Reservaciones.Debe
+                        }
+                    )
+                    .GroupBy(g => g.Cedula)
+                    .Select(g => new VistaClientes {
+                        Cedula = g.Key,
+                        Monto = g.Sum(c => c.Monto)
+                    })
+                    .ToList();
+
+                   
+        }
+
+        async Task Imprimir()
+        {
+            await JsRuntime.InvokeVoidAsync("imprimir");
+        }
+
+}

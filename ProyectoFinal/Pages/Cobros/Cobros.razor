@@ -1,0 +1,118 @@
+@page "/Cobros/Cobros/Cobros"
+@page "/Cobros/Cobros/{id:int}"
+@using ProyectoFinal.Models
+
+@if (Usuario.correo != null && Usuario.contraseña != null)
+{
+  <div class="container">
+    <h4>Cobros</h4>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Matrivula del Carro</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Monto Total</th>
+          <th scope="col">Debe</th>
+          <th scope="col">Ha pagado</th>
+        </tr>
+      </thead>
+      <tbody>
+                
+          <tr>
+
+            <td>@reservacion.Id</td>
+            <td>@GetVehiculos(@reservacion.VehiculoId).Matricula</td>
+            <td>@GetClientes(@reservacion.ClienteId).Nombre</td>
+            <td>@reservacion.MontoTotal</td>
+            <td>@reservacion.Debe</td>
+            <td>@reservacion.HaPagado</td>
+
+            
+            </tr>
+
+            
+      </tbody>
+        </table>
+
+    <div class="mb-3">
+    <label for="pagar" class="form-label">Monto a pagar</label>
+    <input type = "number" @bind = "@pago"  id="pagar" >
+    </div>
+    <h6>@result</h6>
+
+    <input type="button" value="Guardar" class="btn btn-secondary" @onclick="Guardar"/>
+
+    <a class="btn btn-warning" href="/Cobros/Modulo_Cobros">Atras</a>
+</div>
+}
+else
+{
+    <div class="container">
+        <h1 class="display-6">Debes Iniciar Sesion con un correo valido para Vizualizar el contenido</h1>
+        <br>
+        <p>
+            Ya tienes una cuenta? Inicia Sesion
+        </p>
+            <a href="/Cuentas/Login">Iniciar sesion</a>
+    </div>
+}
+
+@code{
+[Parameter]
+public int id {get; set;}
+public int pago = 0;
+public string result = "";
+
+Reservaciones reservacion = new Reservaciones();
+gestion_vehicularContext db = new gestion_vehicularContext();
+
+protected override void OnInitialized(){
+
+if(id > 0){
+    reservacion = db.Reservaciones.Where(x => x.Id == id).First();
+}
+
+}
+
+async Task Guardar(){
+    if(pago < 0 || pago > reservacion.Debe){
+
+        result = "El monto pagado es mayor a la del monto total, favor registrar un pago menor o igual al monto";
+        return;
+    }
+var debe = reservacion.Debe - Convert.ToDecimal(pago);
+reservacion.Debe = debe;
+
+var Pago = reservacion.HaPagado + Convert.ToDecimal(pago);
+reservacion.HaPagado = Pago;
+
+if(reservacion.Debe <= 0){
+
+reservacion.FacturaPagada = "Si";
+result = "Se ha pagado la Factura completa con exito";
+}else{
+    result = "Se ha pagado con exito el monto de: " + pago;
+}
+
+db.SaveChanges();
+    
+}
+
+Vehiculos GetVehiculos(int id){
+        
+        gestion_vehicularContext db = new gestion_vehicularContext();
+
+        return db.Vehiculos.Where(x => x.Id == id).First();
+        
+        }
+
+Clientes GetClientes(int id){
+        
+        gestion_vehicularContext db = new gestion_vehicularContext();
+
+        return db.Clientes.Where(x => x.Id == id).First();
+        
+        }
+}
