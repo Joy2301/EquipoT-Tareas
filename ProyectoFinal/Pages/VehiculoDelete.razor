@@ -1,5 +1,64 @@
-﻿<h3>VehiculoDelete</h3>
+@page "/vdel"
+@using System.Net.Http.Json
+@using System.Net.Http
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using ProyectoFinal.Models
+
+<h3>Aqui podra <b>Deshabilitar</b> o <b>Eliminar</b> Vehiculos de la base de datos.</h3>
+
+<h3>Deshabilitar un Vehiculo.</h3>
+<p>Escriba aqui la ID del caso que desee deshabilitar.</p>
+<input @bind-value="@iddes" />
+<button class="btn btn-block" @onclick="DesVehiculo">Deshabilitar Vehiculo</button>
+@mensajedes
+
+<h3>Eliminar un Vehiculo.</h3>
+<p>Escriba aqui la ID del caso que desee eliminar de la base de datos (PRECAUCION: Si elimina un Vehiculo, no podra recuperarlo de ninguna forma).</p>
+<input @bind-value="@iddel" />
+<button class="btn btn-danger" @onclick="DelVehiculo">Eliminar Vehiculo</button>
+@mensajedel
 
 @code {
+    gestion_vehicularContext db = new gestion_vehicularContext();
+    Vehiculos vehiculo = new Vehiculos();
+    int iddes;
+    string mensajedes = "No se ha deshabilitado ningun Vehiculo.";
+    int iddel;
+    string mensajedel = "No se ha deshabilitado ningun Vehiculo.";
 
+    public void DesVehiculo()
+    {
+        var result = db.Vehiculos.Single(v => v.Id == iddes);
+        if (result != null)
+        {
+            result.VehiculoDisponible = "No.";
+            db.SaveChanges();
+            mensajedes = "Vehiculo deshabilitado exitosamente.";
+        }
+        else
+        {
+            mensajedes = "Error encontrado en la busqueda. Vehiculo no deshabilitado.";
+        }
+    }
+
+    public void DelVehiculo()
+    {
+        var result = db.Vehiculos.Single(v => v.Id == iddel);
+        if (result != null)
+        {
+            db.Vehiculos.RemoveRange(result);
+            db.SaveChanges();
+            mensajedel = "Vehiculo eliminado exitosamente.";
+        }
+        else
+        {
+            mensajedes = "Error encontrado en la busqueda. Vehiculo no Eliminado.";
+        }
+    }
 }
+
