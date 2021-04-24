@@ -1,59 +1,25 @@
-@page "/RegistroCliente"
+@page "/Clientes/RegistroCliente"
+@using ProyectoFinal.Models
 
-<div class="container">
-    <h1 class="display-6">Registro de Clientes</h1>
-    <br>
-    <p>
-        Utilize el formulario siguiente para registrar a los clientes
-    </p>
-    <br>
+@if (Usuario.correo != null && Usuario.contraseña != null)
+{
+    <div class="container">
 
-    <Form>
-        <table class="table">
-            <tr>
-                <td>Cedula:</td>
-                <td><input type="text" class="form-control col-sm-4">
-                    <br>
-                    <input type="button" value="Verificar" class="btn btn-primary">
-                </td>
-            </tr>
-            <tr>
-                <td>Nombre:</td>
-                <td><input type="text" class="form-control col-sm-4"></td>
-            </tr>
-            <tr>
-                <td>Apellido:</td>
-                <td><input type="text" class="form-control col-sm-4"></td>
-            </tr>
-            <tr>
-                <td>Correo:</td>
-                <td><input type="email" class="form-control col-sm-4"></td>
-            </tr>
-            <tr>
-                <td>Licencia:</td>
-                <td><input type="text" class="form-control col-sm-4"></td>
-            </tr>
-            <tr>
-                <td>Nacionalidad:</td>
-                <td><input type="text" class="form-control col-sm-4"></td>
-            </tr>
-            <tr>
-                <td>Tipo de sangre:</td>
-                <td><input type="text" class="form-control col-sm-4"></td>
-            </tr>
-            <tr>
-                <td>Foto de la persona:</td>
-                <td><input type="file" class="form-control col-sm-4"></td>
-            </tr>
-            <tr>
-                <td>Foto de la licensia:</td>
-                <td><input type="file" class="form-control col-sm-4"></td>
-            </tr>
-        </table>
-    </Form>
+    </div>
 
-</div>
+}
+else
+{
+    <div class="container">
+        <h1 class="display-6">Debes Iniciar Sesion con un correo valido para Vizualizar el contenido</h1>
+        <br>
+        <p>
+            Ya tienes una cuenta? Inicia Sesion
+        </p>
+        <a href="/Cuentas/Login">Iniciar sesion</a>
+    </div>
+}
 
-@code {
-    
+@code{
+
 }
