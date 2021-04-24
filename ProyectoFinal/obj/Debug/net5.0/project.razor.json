@@ -633,39 +633,6 @@
         }
       },
       {
-        "HashCode": -1664846269,
-        "Kind": "Components.Component",
-        "Name": "ProyectoFinal.Pages.cliente.RegistroCliente",
-        "AssemblyName": "ProyectoFinal",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "RegistroCliente"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProyectoFinal.Pages.cliente.RegistroCliente"
-        }
-      },
-      {
-        "HashCode": 2092473604,
-        "Kind": "Components.Component",
-        "Name": "ProyectoFinal.Pages.cliente.RegistroCliente",
-        "AssemblyName": "ProyectoFinal",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ProyectoFinal.Pages.cliente.RegistroCliente"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProyectoFinal.Pages.cliente.RegistroCliente",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -2116256740,
         "Kind": "Components.Component",
         "Name": "ProyectoFinal.Pages.Clientes.ClienteIndex",
@@ -765,6 +732,39 @@
         }
       },
       {
+        "HashCode": -1521092557,
+        "Kind": "Components.Component",
+        "Name": "ProyectoFinal.Pages.Clientes.ClienteEdit",
+        "AssemblyName": "ProyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ClienteEdit"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteEdit"
+        }
+      },
+      {
+        "HashCode": 1605299957,
+        "Kind": "Components.Component",
+        "Name": "ProyectoFinal.Pages.Clientes.ClienteEdit",
+        "AssemblyName": "ProyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ProyectoFinal.Pages.Clientes.ClienteEdit"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteEdit",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -6772254,
         "Kind": "Components.Component",
         "Name": "ProyectoFinal.Pages.Clientes.ClienteDelete",
@@ -798,35 +798,35 @@
         }
       },
       {
-        "HashCode": -1521092557,
+        "HashCode": -1664846269,
         "Kind": "Components.Component",
-        "Name": "ProyectoFinal.Pages.Clientes.ClienteEdit",
+        "Name": "ProyectoFinal.Pages.cliente.RegistroCliente",
         "AssemblyName": "ProyectoFinal",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ClienteEdit"
+            "TagName": "RegistroCliente"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteEdit"
+          "Common.TypeName": "ProyectoFinal.Pages.cliente.RegistroCliente"
         }
       },
       {
-        "HashCode": 1605299957,
+        "HashCode": 2092473604,
         "Kind": "Components.Component",
-        "Name": "ProyectoFinal.Pages.Clientes.ClienteEdit",
+        "Name": "ProyectoFinal.Pages.cliente.RegistroCliente",
         "AssemblyName": "ProyectoFinal",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ProyectoFinal.Pages.Clientes.ClienteEdit"
+            "TagName": "ProyectoFinal.Pages.cliente.RegistroCliente"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteEdit",
+          "Common.TypeName": "ProyectoFinal.Pages.cliente.RegistroCliente",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
