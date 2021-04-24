@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace ProyectoFinal.Pages.Cuentas
+namespace ProyectoFinal.Pages.Clientes
 {
     #line hidden
     using System.Collections.Generic;
@@ -82,13 +82,6 @@ using ProyectoFinal.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
-using ProyectoFinal.Models;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 12 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using ProyectoFinal.Data;
 
@@ -130,8 +123,15 @@ using System;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Cuentas/Login")]
-    public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClientesList.razor"
+using ProyectoFinal.Models;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Clientes/cread")]
+    public partial class ClientesList : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -139,44 +139,14 @@ using System;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 29 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Cuentas\Login.razor"
-      
-    public string Correo { get; set; }
-    public string Contraseña { get; set; }
-    public string EstadoUsuario { get; set; } = "";
+#line 36 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClientesList.razor"
+       
+    List<Clientes> GetClientes() => new gestion_vehicularContext().Clientes.ToList();
 
-    public void InicioSesion()
-    {
-        var context = new gestion_vehicularContext();
-        var UsuarioActual = context.Usuarios.Where(u => u.Correo == Correo && u.Clave == Contraseña).FirstOrDefault();
-        bool ExisteRegistro = context.Usuarios.Any(u => u.Correo == Correo && u.Clave == Contraseña);
-
-        if (ExisteRegistro == true)
-        {
-            if (UsuarioActual != null)
-            {
-                Usuario.correo = UsuarioActual.Correo;
-                Usuario.contraseña = UsuarioActual.Clave;
-                Usuario.RolId = UsuarioActual.RolId;
-                
-                NavigationManager.NavigateTo("/");
-            }
-            else
-            {
-                EstadoUsuario = "El usuario o la Contraseña ingresada son incorrectos";
-            }
-        }
-        else
-        {
-            EstadoUsuario = "El usuario o la Contraseña ingresada son incorrectos";
-        }
-        
-    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

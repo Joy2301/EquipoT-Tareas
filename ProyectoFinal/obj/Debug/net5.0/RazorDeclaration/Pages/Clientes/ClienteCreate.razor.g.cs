@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace ProyectoFinal.Pages.Vehiculos
+namespace ProyectoFinal.Pages.Clientes
 {
     #line hidden
     using System.Collections.Generic;
@@ -75,70 +75,70 @@ using System;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 2 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 3 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 4 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 5 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 6 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 7 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 8 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 9 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 10 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
 using ProyectoFinal.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Vehiculos/vdel")]
-    public partial class VehiculoDelete : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Clientes/ccreate")]
+    public partial class ClienteCreate : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -146,43 +146,56 @@ using ProyectoFinal.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 85 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteCreate.razor"
        
-    gestion_vehicularContext db = new gestion_vehicularContext();
-    Vehiculos vehiculo = new Vehiculos();
-    int iddes;
-    string mensajedes = "No se ha deshabilitado ningun Vehiculo.";
-    int iddel;
-    string mensajedel = "No se ha deshabilitado ningun Vehiculo.";
 
-    public void DesVehiculo()
+    gestion_vehicularContext db = new gestion_vehicularContext();
+    Clientes cliente = new Clientes();
+    string mensaje = "Nada ha sido enviado aun.";
+
+    private async Task InputImageCliente(InputFileChangeEventArgs e)
     {
-        var result = db.Vehiculos.Single(v => v.Id == iddes);
-        if (result != null)
-        {
-            result.VehiculoDisponible = "No.";
-            db.SaveChanges();
-            mensajedes = "Vehiculo deshabilitado exitosamente.";
-        }
-        else
-        {
-            mensajedes = "Error encontrado en la busqueda. Vehiculo no deshabilitado.";
-        }
+        var format = "image/jpg";
+
+        var resizedImage = await e.GetMultipleFiles()[0].RequestImageFileAsync(format, 200, 200);
+        var buffer = new byte[resizedImage.Size];
+        await resizedImage.OpenReadStream().ReadAsync(buffer);
+
+        var imageUri = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+
+        cliente.FotoCliente = imageUri;
     }
 
-    public void DelVehiculo()
+    private async Task InputImageLicencia(InputFileChangeEventArgs e)
     {
-        var result = db.Vehiculos.Single(v => v.Id == iddel);
-        if (result != null)
-        {
-            db.Vehiculos.RemoveRange(result);
-            db.SaveChanges();
-            mensajedel = "Vehiculo eliminado exitosamente.";
-        }
-        else
-        {
-            mensajedes = "Error encontrado en la busqueda. Vehiculo no Eliminado.";
-        }
+        var format = "image/jpg";
+
+        var resizedImage = await e.GetMultipleFiles()[0].RequestImageFileAsync(format, 200, 200);
+        var buffer = new byte[resizedImage.Size];
+        await resizedImage.OpenReadStream().ReadAsync(buffer);
+
+        var imageUri = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+
+        cliente.FotoLicencia = imageUri;
+    }
+
+    public void RegistrarCliente()
+    {
+        cliente.ClienteActivo = "Si";
+
+        db.Add(cliente);
+        db.SaveChanges();
+
+        mensaje = "Se ha registrado un nuevo cliente.";
+    }
+
+    public List<Tiposangre> GetTiposSangre()
+    {
+        gestion_vehicularContext context = new gestion_vehicularContext();
+
+        var tiposSangre = context.Tiposangre.ToList();
+
+        return tiposSangre;
     }
 
 #line default

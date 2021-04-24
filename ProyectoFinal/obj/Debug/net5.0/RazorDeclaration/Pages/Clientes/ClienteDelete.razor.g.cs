@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace ProyectoFinal.Pages.Vehiculos
+namespace ProyectoFinal.Pages.Clientes
 {
     #line hidden
     using System.Collections.Generic;
@@ -75,70 +75,70 @@ using System;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 2 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 3 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 4 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 5 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 6 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 7 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 8 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 9 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 10 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
 using ProyectoFinal.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Vehiculos/vdel")]
-    public partial class VehiculoDelete : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Clientes/cdel")]
+    public partial class ClienteDelete : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -146,42 +146,42 @@ using ProyectoFinal.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoDelete.razor"
+#line 27 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Clientes\ClienteDelete.razor"
        
     gestion_vehicularContext db = new gestion_vehicularContext();
-    Vehiculos vehiculo = new Vehiculos();
+    Clientes cliente = new Clientes();
     int iddes;
-    string mensajedes = "No se ha deshabilitado ningun Vehiculo.";
+    string mensajedes = "No se ha deshabilitado ningun cliente.";
     int iddel;
-    string mensajedel = "No se ha deshabilitado ningun Vehiculo.";
+    string mensajedel = "No se ha deshabilitado ningun cliente.";
 
-    public void DesVehiculo()
+    public void DesCliente()
     {
-        var result = db.Vehiculos.Single(v => v.Id == iddes);
+        var result = db.Clientes.Single(v => v.Id == iddes);
         if (result != null)
         {
-            result.VehiculoDisponible = "No.";
+            result.ClienteActivo = "No.";
             db.SaveChanges();
-            mensajedes = "Vehiculo deshabilitado exitosamente.";
+            mensajedes = "Cliente deshabilitado exitosamente.";
         }
         else
         {
-            mensajedes = "Error encontrado en la busqueda. Vehiculo no deshabilitado.";
+            mensajedes = "Error encontrado en la busqueda. Cliente no deshabilitado.";
         }
     }
 
-    public void DelVehiculo()
+    public void DelCliente()
     {
-        var result = db.Vehiculos.Single(v => v.Id == iddel);
+        var result = db.Clientes.Single(v => v.Id == iddel);
         if (result != null)
         {
-            db.Vehiculos.RemoveRange(result);
+            db.Clientes.RemoveRange(result);
             db.SaveChanges();
-            mensajedel = "Vehiculo eliminado exitosamente.";
+            mensajedel = "Cliente eliminado exitosamente.";
         }
         else
         {
-            mensajedes = "Error encontrado en la busqueda. Vehiculo no Eliminado.";
+            mensajedes = "Error encontrado en la busqueda. cliente no Eliminado.";
         }
     }
 
