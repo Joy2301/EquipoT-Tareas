@@ -34,7 +34,7 @@ namespace ProyectoFinal.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("server=localhost;uid=root;database=gestion_vehicular", x => x.ServerVersion("10.4.16-mariadb"));
+                optionsBuilder.UseMySql("server=boq4vmi1hnif0xcijzyy-mysql.services.clever-cloud.com;uid=utfvrwdwbazujr5y;pwd=Cg99VwnhIlNQBTpozEUt;database=boq4vmi1hnif0xcijzyy", x => x.ServerVersion("10.4.16-mariadb"));
             }
         }
 
