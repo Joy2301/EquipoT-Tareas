@@ -19,7 +19,7 @@
             <tr>
                 <td>ID (SE NECESITA PARA LA ACTUALIZACION) </td>
                 <td>
-                    <input type="text" class="form-control col-sm-4" @bind="@vliente.Id">
+                    <input type="text" class="form-control col-sm-4" @bind="@cliente.Id">
                     <br>
                     <input type="button" value="Buscar ID" class="btn btn-primary" @onclick="SearchCliente" />
                     @mensajetest
@@ -141,9 +141,9 @@
             {
                 result.Nacionalidad = cliente.Nacionalidad;
             }
-            if (cliente.Tiposangre != null)
+            if (cliente.TipoSangreId != null)
             {
-                result.Tiposangre = cliente.Tiposangre;
+                result.TipoSangreId = cliente.TipoSangreId;
             }
             if (cliente.FotoCliente != null)
             {

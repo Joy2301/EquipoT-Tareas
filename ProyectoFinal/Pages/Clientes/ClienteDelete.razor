@@ -27,14 +27,14 @@
 @code {
     gestion_vehicularContext db = new gestion_vehicularContext();
     Clientes cliente = new Clientes();
-    int iddes;
+    string iddes;
     string mensajedes = "No se ha deshabilitado ningun cliente.";
-    int iddel;
+    string iddel;
     string mensajedel = "No se ha deshabilitado ningun cliente.";
 
     public void DesCliente()
     {
-        var result = db.Clientes.Single(v => v.Id == iddes);
+        var result = db.Clientes.Single(v => v.Cedula == iddes);
         if (result != null)
         {
             result.ClienteActivo = "No.";
@@ -49,7 +49,7 @@
 
     public void DelCliente()
     {
-        var result = db.Clientes.Single(v => v.Id == iddel);
+        var result = db.Clientes.Single(v => v.Cedula == iddel);
         if (result != null)
         {
             db.Clientes.RemoveRange(result);

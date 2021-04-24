@@ -93,6 +93,7 @@
 .nav-item[b-fx6gbz8hvx] {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
+    cursor: pointer;
 }
 
     .nav-item:first-of-type[b-fx6gbz8hvx] {
@@ -104,7 +105,7 @@
     }
 
     .nav-item[b-fx6gbz8hvx]  a {
-        color: #d7d7d7;
+        color: #c2b0cf;
         border-radius: 4px;
         height: 3rem;
         display: flex;
@@ -112,15 +113,16 @@
         line-height: 3rem;
     }
 
-.nav-item[b-fx6gbz8hvx]  a.active {
-    background-color: rgba(255,255,255,0.25);
-    color: white;
-}
+        .nav-item[b-fx6gbz8hvx]  a.active {
+            background-color: rgba(255,255,255,0.25);
+            color: #A9A9A9;
+        }
 
-.nav-item[b-fx6gbz8hvx]  a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-}
+        .nav-item[b-fx6gbz8hvx]  a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: #A9A9A9;
+        }
+
 
 @media (min-width: 641px) {
     .navbar-toggler[b-fx6gbz8hvx] {

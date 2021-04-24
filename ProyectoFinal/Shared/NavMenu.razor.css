@@ -21,6 +21,7 @@
 .nav-item {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
+    cursor: pointer;
 }
 
     .nav-item:first-of-type {
@@ -32,7 +33,7 @@
     }
 
     .nav-item ::deep a {
-        color: #4B0082;
+        color: #c2b0cf;
         border-radius: 4px;
         height: 3rem;
         display: flex;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rg8r+3NkGZbm1N6rTOZmKqWuKCbgz9+ewAFdlsL1ZW0MfMGwfkynaXqwAXlDvXCJDCaz5wP+Q6kmu8fIxUaWOg==",
+  "dgSpecHash": "jxDQab8JM/LWu2R8A+2exujFvQBjG7BbF0ml+A+fWcu64vEPHDKja7KdcueN+DHIkKOv7HD+D5gLWSjlLXa7Jw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj",
+  "projectFilePath": "C:\\Users\\mdela\\Desktop\\Proyectos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mdela\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\mdela\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj": {}
+    "C:\\Users\\mdela\\Desktop\\Proyectos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj": {
+    "C:\\Users\\mdela\\Desktop\\Proyectos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj",
+        "projectUniqueName": "C:\\Users\\mdela\\Desktop\\Proyectos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj",
         "projectName": "ProyectoFinal",
-        "projectPath": "C:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj",
+        "projectPath": "C:\\Users\\mdela\\Desktop\\Proyectos\\EquipoT-Tareas\\ProyectoFinal\\ProyectoFinal.csproj",
         "packagesPath": "C:\\Users\\mdela\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mdela\\Desktop\\ITLA\\Cuatrimestre 5\\Trabajos\\EquipoT-Tareas\\ProyectoFinal\\obj\\",
+        "outputPath": "C:\\Users\\mdela\\Desktop\\Proyectos\\EquipoT-Tareas\\ProyectoFinal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
