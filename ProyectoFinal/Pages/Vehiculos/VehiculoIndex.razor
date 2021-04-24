@@ -1,0 +1,38 @@
+@page "/Vehiculos/vehiculos"
+
+@if (Usuario.correo != null && Usuario.contraseña != null)
+{
+    <div class="container">
+        <h3>Gestion de Vehiculos.</h3>
+        <p>Aqui Usted podra registrar, deshabilitar, y editar vehiculos en el sistema. </p>
+
+        <NavLink class="nav-link" href="/Vehiculos/vcreate" Match="NavLinkMatch.All">
+            <span class="oi oi-check" aria-hidden="true"></span> Registrar un Vehiculo
+        </NavLink>
+
+        <NavLink class="nav-link" href="/Vehiculos/vedit" Match="NavLinkMatch.All">
+            <span class="oi oi-check" aria-hidden="true"></span> Editar un Vehiculo
+        </NavLink>
+
+        <NavLink class="nav-link" href="/Vehiculos/vdel" Match="NavLinkMatch.All">
+            <span class="oi oi-check" aria-hidden="true"></span> Eliminar/Deshabilitar un Vehiculo
+        </NavLink>
+
+    </div>
+
+}
+else
+{
+    <div class="container">
+        <h1 class="display-6">Debes Iniciar Sesion con un correo valido para Vizualizar el contenido</h1>
+        <br>
+        <p>
+            Ya tienes una cuenta? Inicia Sesion
+        </p>
+            <a href="/Cuentas/Login">Iniciar sesion</a>
+    </div>
+}
+
+@code {
+
+}

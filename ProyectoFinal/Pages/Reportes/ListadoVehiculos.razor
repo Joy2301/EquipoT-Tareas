@@ -11,16 +11,23 @@
             Seleccione un rango de fecha para mostrar los vehiculos disponibles
         </p>
         <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Desde:</th>
+                    <th>Hasta:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>
+                    <input type="date" @bind="@FechaInicio" format-value="yyyy-mm-dd"/>
+                </td>
+                <td>
+                    <input type="date" @bind="@FechaFin" format-value="yyyy-mm-dd"/>
+                </td>
+            </tbody>
+        </table>
 
-        <input type="date" @bind="@FechaInicio" format-value="yyyy-mm-dd"/>
-        <br>
-        <input type="date" @bind="@FechaFin" format-value="yyyy-mm-dd"/>
-        <br>
-
-        <input type="button" value="Buscar" class="btn btn-primary" @onclick="Buscar"/>
-        <br>
-        @FechaInicio
-        @FechaFin
         <table class="table">
             <thead>
                 <tr>
@@ -28,6 +35,7 @@
                     <th>Modelo</th>
                     <th>Color</th>
                     <th>Año</th>
+                    <th>Foto</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,12 +46,15 @@
                             <td>@r.Modelo</td>
                             <td>@r.Color</td>
                             <td>@r.Año</td>
+                            <td><img src=@r.Foto asp-append-version="true" width="100" heigth="100"/></td>
                         </tr>
                     }
             </tbody>
         </table>
+
         <input type="submit" value="Imprimir" class="btn btn-secondary" @onclick="Imprimir"/>
         <br><br>
+
     </div>
 }
 else
@@ -62,19 +73,6 @@ else
     public DateTime FechaInicio { get; set; } = DateTime.Now;
     public DateTime FechaFin { get; set; } = DateTime.Now;
 
-    public void Buscar()
-    {
-
-    //var unionList = GetVehiculos.Concat(nose).ToList();
-    //var unionList = GetVehiculos.AddRange(nose).Distinct().ToList();
-
-    
-    /*List<Reservaciones> GetReservaciones = new gestion_vehicularContext().Reservaciones.Where(
-        F => F.FechaInicio == FechaInicio && F.FechaFin == FechaFin).ToList();*/
-    }
-    
-
-    
     List<Vehiculos> GetVehiculos => new gestion_vehicularContext().Vehiculos.ToList();
     
     //Clase para modelar los datos del Join
@@ -84,7 +82,7 @@ else
         public string Modelo { get; set; }
         public short Año { get; set; }
         public string Color { get; set; }
-        public decimal Beneficio { get; set; }
+        public string Foto { get; set; }
     }
 
     List<VistaVehiculos> GetReservaciones()
@@ -104,11 +102,10 @@ else
                             Marca = r.Vehiculos.Marca,
                             Modelo = r.Vehiculos.Modelo,
                             Año = r.Vehiculos.Año,
-                            Color = r.Vehiculos.Color
+                            Color = r.Vehiculos.Color,
+                            Foto = r.Vehiculos.Foto
                         }
-                    ).ToList();
-
-                   
+                    ).ToList();  
         }
 
         async Task Imprimir()

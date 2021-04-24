@@ -182,3 +182,13 @@ C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal
 C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Cobros\Eliminar_Cobros.razor.g.cs
 C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Cobros\Modulo_Cobros.razor.g.cs
 C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Reservaciones\Registro_Reservaciones.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\cliente\RegistroCliente.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Vehiculos\VehiculoCreate.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Vehiculos\VehiculoDelete.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Vehiculos\VehiculoEdit.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Vehiculos\VehiculoIndex.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\cliente\RegistroCliente.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Vehiculos\VehiculoCreate.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Vehiculos\VehiculoDelete.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Vehiculos\VehiculoEdit.razor.g.cs
+C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Vehiculos\VehiculoIndex.razor.g.cs

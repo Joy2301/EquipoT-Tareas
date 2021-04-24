@@ -151,8 +151,9 @@ using System;
         public short Año { get; set; }
         public string Color { get; set; }
         public DateTime? FechaInicio { get; set; }
-        public float Latitud { get; set; }
-        public float Longitud { get; set; }
+        public float? Latitud { get; set; }
+        public float? Longitud { get; set; }
+        public string Foto { get; set; }
     }
 
     List<VistaVehiculos> GetReservaciones()
@@ -175,7 +176,8 @@ using System;
                             Latitud = r.Vehiculos.Latitud,
                             Longitud = r.Vehiculos.Longitud,
                             Matricula = r.Vehiculos.Matricula,
-                            FechaInicio = r.Reservaciones.FechaInicio
+                            FechaInicio = r.Reservaciones.FechaInicio,
+                            Foto = r.Vehiculos.Foto
                         }
                     ).ToList();
         }
@@ -198,7 +200,6 @@ using System;
                     });
                     foreach(var v in GetVehiculos()){
                     
-
                         var marker = new Marker(v.Latitud, v.Longitud) {
                             Title = v.Modelo,
                             RiseOnHover = true,
@@ -208,7 +209,7 @@ using System;
                                             $"Matricula {v.Matricula} </br> "+
                                             $"Color {v.Color} </br> "+
                                             $"{v.Año} </br></br> "+
-                                            $"Citas: </br> "
+                                            $"<img src={v.Foto} asp-append-version='true' width='70' heigth='70'/>"
                                 }
                         };
 

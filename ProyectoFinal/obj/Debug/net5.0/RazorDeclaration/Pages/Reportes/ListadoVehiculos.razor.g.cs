@@ -139,24 +139,11 @@ using System;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 61 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\Pages\Reportes\ListadoVehiculos.razor"
+#line 72 "C:\Users\mdela\Desktop\ITLA\Cuatrimestre 5\Trabajos\EquipoT-Tareas\ProyectoFinal\Pages\Reportes\ListadoVehiculos.razor"
       
     public DateTime FechaInicio { get; set; } = DateTime.Now;
     public DateTime FechaFin { get; set; } = DateTime.Now;
 
-    public void Buscar()
-    {
-
-    //var unionList = GetVehiculos.Concat(nose).ToList();
-    //var unionList = GetVehiculos.AddRange(nose).Distinct().ToList();
-
-    
-    /*List<Reservaciones> GetReservaciones = new gestion_vehicularContext().Reservaciones.Where(
-        F => F.FechaInicio == FechaInicio && F.FechaFin == FechaFin).ToList();*/
-    }
-    
-
-    
     List<Vehiculos> GetVehiculos => new gestion_vehicularContext().Vehiculos.ToList();
     
     //Clase para modelar los datos del Join
@@ -166,7 +153,7 @@ using System;
         public string Modelo { get; set; }
         public short Año { get; set; }
         public string Color { get; set; }
-        public decimal Beneficio { get; set; }
+        public string Foto { get; set; }
     }
 
     List<VistaVehiculos> GetReservaciones()
@@ -186,11 +173,10 @@ using System;
                             Marca = r.Vehiculos.Marca,
                             Modelo = r.Vehiculos.Modelo,
                             Año = r.Vehiculos.Año,
-                            Color = r.Vehiculos.Color
+                            Color = r.Vehiculos.Color,
+                            Foto = r.Vehiculos.Foto
                         }
-                    ).ToList();
-
-                   
+                    ).ToList();  
         }
 
         async Task Imprimir()
