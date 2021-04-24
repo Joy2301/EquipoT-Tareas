@@ -1,0 +1,39 @@
+@page "/Clientes/cread"
+@using ProyectoFinal.Models
+
+<h1>Clientes</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Licencia</th>
+            <th>Nacionalidad</th>
+            <th>Foto de la persona</th>
+            <th>Foto de la licencia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Clientes cl in GetClientes())
+        {
+            <tr>
+                <td>@cl.Cedula</td>
+                <td>@cl.Nombre</td>
+                <td>@cl.Apellido</td>
+                <td>@cl.Correo</td>
+                <td>@cl.Licencia</td>
+                <td>@cl.Nacionalidad</td>
+                <td>@cl.FotoPersona</td>
+                <td>@cl.FotoLicencia</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Clientes> GetClientes() => new gestion_vehicularContext().Clientes.ToList();
+
+}

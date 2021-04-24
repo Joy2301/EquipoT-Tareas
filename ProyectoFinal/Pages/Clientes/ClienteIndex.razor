@@ -1,0 +1,43 @@
+@page "/Clientes/RegistroCliente"
+@using ProyectoFinal.Models
+
+@if (Usuario.correo != null && Usuario.contraseña != null)
+{
+    <div class="container">
+        <h3>Gestion de Clientes.</h3>
+        <p>Aqui Usted podra ver, registrar, eliminar, y editar clientes del sistema. </p>
+
+        <NavLink class="nav-link" href="/Clientes/cread" Match="NavLinkMatch.All">
+            <span class="oi oi-check" aria-hidden="true"></span> Ver los clientes
+        </NavLink>
+
+        <NavLink class="nav-link" href="/Clientes/ccreate" Match="NavLinkMatch.All">
+            <span class="oi oi-check" aria-hidden="true"></span> Registrar un nuevo cliente
+        </NavLink>
+
+        <NavLink class="nav-link" href="/Clientes/cedit" Match="NavLinkMatch.All">
+            <span class="oi oi-check" aria-hidden="true"></span> Editar informacion de clientes
+        </NavLink>
+
+        <NavLink class="nav-link" href="/Clientes/cdel" Match="NavLinkMatch.All">
+            <span class="oi oi-check" aria-hidden="true"></span> Eliminar clientes
+        </NavLink>
+    </div>
+
+
+}
+else
+{
+    <div class="container">
+        <h1 class="display-6">Debes Iniciar Sesion con un correo valido para Vizualizar el contenido</h1>
+        <br>
+        <p>
+            Ya tienes una cuenta? Inicia Sesion
+        </p>
+        <a href="/Cuentas/Login">Iniciar sesion</a>
+    </div>
+}
+
+@code{
+
+}

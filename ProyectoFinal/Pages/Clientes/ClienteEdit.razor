@@ -1,0 +1,200 @@
+@page "/Clientes/cedit"
+@using System.Net.Http.Json
+@using System.Net.Http
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using ProyectoFinal.Models
+
+
+<div class="container">
+
+    <h3>Editar un Cliente Existente.</h3>
+
+    <EditForm Model="@cliente" OnValidSubmit="UpdateCliente">
+        <table class="table">
+            <tr>
+                <td>ID (SE NECESITA PARA LA ACTUALIZACION) </td>
+                <td>
+                    <input type="text" class="form-control col-sm-4" @bind="@vliente.Id">
+                    <br>
+                    <input type="button" value="Buscar ID" class="btn btn-primary" @onclick="SearchCliente" />
+                    @mensajetest
+                </td>
+            </tr>
+            <tr>
+                <td>Cedula:</td>
+                <td>
+                    <input type="text" class="form-control col-sm-4" @bind="@cliente.Cedula">
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td>
+                    <input type="text" class="form-control col-sm-6" @bind="@cliente.Nombre">
+                </td>
+            </tr>
+            <tr>
+                <td>Apellido:</td>
+                <td>
+                    <input type="text" class="form-control col-sm-6" @bind="@cliente.Apellido">
+                </td>
+            </tr>
+            <tr>
+                <td>Correo:</td>
+                <td>
+                    <input type="email" class="form-control col-sm-6" @bind="@cliente.Correo">
+                </td>
+            </tr>
+            <tr>
+                <td>Licencia:</td>
+                <td>
+                    <input type="text" class="form-control col-sm-6" @bind="@cliente.Licencia">
+                </td>
+            </tr>
+            <tr>
+                <td>Nacionalidad:</td>
+                <td>
+                    <input type="text" class="form-control col-sm-6" @bind="@cliente.Nacionalidad">
+                </td>
+            </tr>
+            <tr>
+                <td>Tipo de sangre:</td>
+                <td>
+                    <InputSelect class="form-control col-sm-6" @bind-Value="@cliente.TipoSangreId">
+                        <option value=0>Tipo de Sangre...</option>
+                        @foreach (var tipo in GetTiposSangre())
+                        {
+                            <option value="@tipo.Id"> @tipo.Tipo </option>
+                        }
+                    </InputSelect>
+                </td>
+            </tr>
+            <tr>
+                <td>Foto del cliente:</td>
+                <td>
+                    <InputFile OnChange="InputImageCliente" class="form-control-file" />
+                </td>
+            </tr>
+            <tr>
+                <td>Foto de la licencia:</td>
+                <td>
+                    <InputFile OnChange="InputImageLicencia" class="form-control-file" />
+                </td>
+            </tr>
+        </table>
+    </EditForm>
+
+    <input type="submit" value="Guardar" class="btn btn-primary" @onclick="UpdateCliente" />
+    @mensaje
+    <br><br>
+</div>
+
+@code {
+    gestion_vehicularContext db = new gestion_vehicularContext();
+    Clientes cliente = new Clientes();
+    string mensaje = "No se ha editado ningun cliente.";
+    string mensajetest = "";
+
+    public void SearchCliente()
+    {
+        bool result = db.Clientes.Any(v => v.Id == cliente.Id);
+        if (result == true)
+        {
+            mensajetest = "Existe un cliente con la ID en la Base de Datos.";
+        }
+        else
+        {
+            mensajetest = "No se encontro Ningun cliente con esa ID en la Base de Datos";
+        }
+    }
+
+    public void UpdateCliente()
+    {
+        var result = db.Clientes.Single(v => v.Id == cliente.Id);
+        if (result != null)
+        {
+            if (cliente.Cedula != null)
+            {
+                result.Cedula = cliente.Cedula;
+            }
+            if (cliente.Nombre != null)
+            {
+                result.Nombre = cliente.Nombre;
+            }
+            if (cliente.Apellido != null)
+            {
+                result.Apellido = cliente.Apellido;
+            }
+            if (cliente.Correo != null)
+            {
+                result.Correo = cliente.Correo;
+            }
+            if (cliente.Licencia != null)
+            {
+                result.Licencia = cliente.Licencia;
+            }
+            if (cliente.Nacionalidad != null)
+            {
+                result.Nacionalidad = cliente.Nacionalidad;
+            }
+            if (cliente.Tiposangre != null)
+            {
+                result.Tiposangre = cliente.Tiposangre;
+            }
+            if (cliente.FotoCliente != null)
+            {
+                result.FotoCliente = cliente.FotoCliente;
+            }
+            if (cliente.FotoLicencia != null)
+            {
+                result.FotoLicencia = cliente.FotoLicencia;
+            }
+            cliente.ClienteActivo = "Si";
+
+            db.SaveChanges();
+            mensaje = "Caso editado exitosamente.";
+        }
+        else
+        {
+            mensaje = "Error encontrado en la busqueda. Cliente no encontrado.";
+        }
+    }
+
+    private async Task InputImageCliente(InputFileChangeEventArgs e)
+    {
+        var format = "image/jpg";
+
+        var resizedImage = await e.GetMultipleFiles()[0].RequestImageFileAsync(format, 200, 200);
+        var buffer = new byte[resizedImage.Size];
+        await resizedImage.OpenReadStream().ReadAsync(buffer);
+
+        var imageUri = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+
+        cliente.FotoCliente = imageUri;
+    }
+    private async Task InputImageLicencia(InputFileChangeEventArgs e)
+    {
+        var format = "image/jpg";
+
+        var resizedImage = await e.GetMultipleFiles()[0].RequestImageFileAsync(format, 200, 200);
+        var buffer = new byte[resizedImage.Size];
+        await resizedImage.OpenReadStream().ReadAsync(buffer);
+
+        var imageUri = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+
+        cliente.FotoLicencia = imageUri;
+    }
+
+    public List<Tiposangre> GetTiposSangre()
+    {
+        gestion_vehicularContext context = new gestion_vehicularContext();
+
+        var tipos = context.Tiposangre.ToList();
+
+        return tipos;
+    }
+}
