@@ -1,4 +1,4 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">ProyectoFinal</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -13,40 +13,70 @@
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/Vehiculos/vehiculos" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Registro Vehiculos
+            <NavLink class="nav-link" @onclick="()=>expandSubNavClientes = !expandSubNavClientes">
+                <span class="oi oi-person" aria-hidden="true"></span> Gestión Clientes
             </NavLink>
+            @if (expandSubNavClientes)
+            {
+        <NavLink class="expand-menu" href="/RegistroCliente">
+            <span>Registrar Clientes</span>
+        </NavLink>}
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/Reservaciones/Registro_Reservaciones" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Registro Reservacion
-            </NavLink>
+        <NavLink class="nav-link" @onclick="()=>expandSubNavReportes = !expandSubNavReportes">
+            <span class="oi oi-list-rich aria-hidden="true"></span> Gestión Reportes
+        </NavLink>
+        @if (expandSubNavReportes)
+        {
+          <NavLink class="expand-menu" href="/Reportes/ListadoVehiculos">
+           <span>Listado de Vehiculos</span>
+          </NavLink>
+          <NavLink class="" href="/Reportes/ListadoBeneficios">
+           <span>Listado de Beneficios</span>
+           </NavLink>
+           <NavLink class="" href="/Reportes/ClientesQueDeben">
+           <span>Clientes que Deben</span>
+           </NavLink>}
         </li>
+
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/Cobros/Modulo_Cobros" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Modulo de cobros
+        <NavLink class="nav-link" @onclick="()=>expandSubNavVehiculos = !expandSubNavVehiculos">
+        <span class="oi oi-cart" aria-hidden="true"></span> Gestión Vehiculos
+         </NavLink>
+        @if (expandSubNavVehiculos)
+        {
+            <NavLink class="expand-menu" href="/Vehiculos/vehiculos">
+                <span>Registro Vehiculos</span>
             </NavLink>
+            <NavLink class="" href="/Reportes/VehiculosEnMapa">
+                <span>Vehiculos en Mapa.</span>
+            </NavLink>
+        }
         </li>
+
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/Reportes/ListadoVehiculos" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> ListadoVehiculos
+    <NavLink class="nav-link" @onclick="()=>expandSubNavReservas = !expandSubNavReservas">
+        <span class="oi oi-list" aria-hidden="true"></span> Gestión Reservas
+    </NavLink>
+        @if (expandSubNavReservas)
+        {
+            <NavLink class="expand-menu" href="/Reservaciones/Registro_Reservaciones">
+                <span>Registro Reservacion</span>
             </NavLink>
+        }
         </li>
+
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/Reportes/ListadoBeneficios" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> ListadoBeneficios
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/Reportes/ClientesQueDeben" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Clientes que deben
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/Reportes/VehiculosEnMapa" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Vehiculos En mapa
-            </NavLink>
-        </li>
+    <NavLink class="nav-link" @onclick="()=>expandSubNavCobros = !expandSubNavCobros">
+        <span class="oi oi-credit-card" aria-hidden="true"></span> Gestión Cobros
+    </NavLink>
+    @if (expandSubNavCobros)
+    {
+        <NavLink class="expand-menu" href="/Cobros/Modulo_Cobros">
+            <span>Modulo de cobros</span>
+        </NavLink>
+    }
+    </li>
     </ul>
 </div>
 
@@ -59,4 +89,14 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+    private bool expandSubNavVehiculos;
+
+    private bool expandSubNavClientes;
+
+    private bool expandSubNavReportes;
+
+    private bool expandSubNavReservas;
+
+    private bool expandSubNavCobros;
 }
