@@ -18,9 +18,15 @@
             </NavLink>
             @if (expandSubNavClientes)
             {
-        <NavLink class="expand-menu" href="/Clientes/RegistroCliente">
-            <span>Clientes</span>
-        </NavLink>}
+                <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="/Clientes/RegistroCliente">
+                            <span>Clientes</span>
+                        </NavLink>
+                    </li>
+                </ul>
+            
+            }
         </li>
         <li class="nav-item px-3">
         <NavLink class="nav-link" @onclick="()=>expandSubNavReportes = !expandSubNavReportes">
@@ -28,15 +34,33 @@
         </NavLink>
         @if (expandSubNavReportes)
         {
-          <NavLink class="expand-menu" href="/Reportes/ListadoVehiculos">
-           <span>Listado de Vehiculos</span>
-          </NavLink>
-          <NavLink class="" href="/Reportes/ListadoBeneficios">
-           <span>Listado de Beneficios</span>
-           </NavLink>
-           <NavLink class="" href="/Reportes/ClientesQueDeben">
-           <span>Clientes que Deben</span>
-           </NavLink>}
+            <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="/Reportes/ListadoVehiculos">
+                            <span>Listado de Vehiculos</span>
+                        </NavLink>
+                    </li>
+                </ul>
+          
+
+          <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="/Reportes/ListadoBeneficios">
+                            <span>Listado de Beneficios</span>
+                        </NavLink>
+                    </li>
+                </ul>
+
+          
+
+           <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="/Reportes/ClientesQueDeben">
+                            <span>Clientes que Deben</span>
+                        </NavLink>
+                    </li>
+                </ul>
+           }
         </li>
 
         <li class="nav-item px-3">
@@ -45,12 +69,20 @@
          </NavLink>
         @if (expandSubNavVehiculos)
         {
-            <NavLink class="expand-menu" href="/Vehiculos/vehiculos">
-                <span>Registro Vehiculos</span>
-            </NavLink>
-            <NavLink class="" href="/Reportes/VehiculosEnMapa">
-                <span>Vehiculos en Mapa.</span>
-            </NavLink>
+            <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="/Vehiculos/vehiculos">
+                            <span>Registro Vehiculos</span>
+                        </NavLink>
+                    </li>
+                </ul>
+                <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="/Reportes/VehiculosEnMapa">
+                            <span>Vehiculos en Mapa.</span>
+                        </NavLink>
+                    </li>
+                </ul>
         }
         </li>
 
@@ -60,9 +92,13 @@
     </NavLink>
         @if (expandSubNavReservas)
         {
-            <NavLink class="expand-menu" href="/Reservaciones/Registro_Reservaciones">
-                <span>Registro Reservacion</span>
-            </NavLink>
+            <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="/Reservaciones/Registro_Reservaciones">
+                            <span>Registro Reservacion</span>
+                        </NavLink>
+                    </li>
+                </ul>
         }
         </li>
 
@@ -72,9 +108,13 @@
     </NavLink>
     @if (expandSubNavCobros)
     {
-        <NavLink class="expand-menu" href="/Cobros/Modulo_Cobros">
-            <span>Modulo de cobros</span>
-        </NavLink>
+        <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="/Cobros/Modulo_Cobros">
+                            <span>Modulo de cobros</span>
+                        </NavLink>
+                    </li>
+                </ul>
     }
     </li>
     </ul>

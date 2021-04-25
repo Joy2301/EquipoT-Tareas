@@ -105,7 +105,7 @@
     }
 
     .nav-item[b-fx6gbz8hvx]  a {
-        color: #c2b0cf;
+        color: #e2dae7;
         border-radius: 4px;
         height: 3rem;
         display: flex;
@@ -115,7 +115,7 @@
 
         .nav-item[b-fx6gbz8hvx]  a.active {
             background-color: rgba(255,255,255,0.25);
-            color: #A9A9A9;
+            color: #d8d6d6;
         }
 
         .nav-item[b-fx6gbz8hvx]  a:hover {

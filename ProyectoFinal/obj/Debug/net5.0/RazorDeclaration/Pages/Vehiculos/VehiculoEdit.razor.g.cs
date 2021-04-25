@@ -12,126 +12,126 @@ namespace ProyectoFinal.Pages.Vehiculos
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 8 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 8 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 9 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using ProyectoFinal;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 10 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using ProyectoFinal.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 12 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using ProyectoFinal.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 13 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using BlazorLeaflet;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 14 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using BlazorLeaflet.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 15 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using BlazorLeaflet.Models.Events;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 16 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using ProyectoFinal.Data.AdministracionUsuarios;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
+#line 17 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\_Imports.razor"
 using System;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 2 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 3 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 4 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 5 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 6 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 7 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 8 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 9 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 10 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
 using ProyectoFinal.Models;
 
 #line default
@@ -146,7 +146,7 @@ using ProyectoFinal.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 142 "c:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
+#line 142 "C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\Pages\Vehiculos\VehiculoEdit.razor"
        
     gestion_vehicularContext db = new gestion_vehicularContext();
     Vehiculos vehiculo = new Vehiculos();
@@ -161,12 +161,43 @@ using ProyectoFinal.Models;
         bool result = db.Vehiculos.Any(v => v.Id == vehiculo.Id);
         if (result == true)
         {
+            var results = db.Vehiculos.Single(v => v.Id == vehiculo.Id);
+
+            vehiculo.Marca = results.Marca;
+            vehiculo.Modelo = results.Modelo;
+            vehiculo.Año = results.Año;
+            vehiculo.Color = results.Color;
+            vehiculo.Precio = results.Precio;
+            vehiculo.TipoId = results.TipoId;
+            vehiculo.CapacidadDeCarga = results.CapacidadDeCarga;
+            vehiculo.Pasajeros = results.Pasajeros;
+            vehiculo.Matricula = results.Matricula;
+            vehiculo.NroSeguro = results.NroSeguro;
+            vehiculo.Latitud = results.Latitud;
+            vehiculo.Longitud = results.Longitud;
+
             mensajetest = "Existe un Vehiculo con la ID en la Base de Datos.";
         }
         else
         {
             mensajetest = "No se encontro Ningun Vehiculo con esa ID en la Base de Datos";
         }
+    }
+
+    public void Limpiar()
+    {
+        vehiculo.Marca = "";
+        vehiculo.Modelo = "";
+        vehiculo.Año = 2000;
+        vehiculo.Color = "";
+        vehiculo.Precio = 0;
+        vehiculo.TipoId = 1;
+        vehiculo.CapacidadDeCarga = 0;
+        vehiculo.Pasajeros = 0;
+        vehiculo.Matricula = "";
+        vehiculo.NroSeguro = "";
+        vehiculo.Latitud = 0;
+        vehiculo.Longitud = 0;   
     }
 
     public void UpdateVehiculo()
@@ -194,9 +225,9 @@ using ProyectoFinal.Models;
             {
                 result.Precio = vehiculo.Precio;
             }
-            if (vehiculo.Tipo != null)
+            if (vehiculo.TipoId != null)
             {
-                result.Tipo = vehiculo.Tipo;
+                result.TipoId = vehiculo.TipoId;
             }
             if (vehiculo.CapacidadDeCarga != null)
             {
@@ -225,6 +256,7 @@ using ProyectoFinal.Models;
             vehiculo.VehiculoDisponible = "Si";
 
             db.SaveChanges();
+            Limpiar();
             mensaje = "Caso Robo editado exitosamente.";
         }
         else

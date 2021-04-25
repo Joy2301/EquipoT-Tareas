@@ -153,12 +153,43 @@
         bool result = db.Vehiculos.Any(v => v.Id == vehiculo.Id);
         if (result == true)
         {
+            var results = db.Vehiculos.Single(v => v.Id == vehiculo.Id);
+
+            vehiculo.Marca = results.Marca;
+            vehiculo.Modelo = results.Modelo;
+            vehiculo.Año = results.Año;
+            vehiculo.Color = results.Color;
+            vehiculo.Precio = results.Precio;
+            vehiculo.TipoId = results.TipoId;
+            vehiculo.CapacidadDeCarga = results.CapacidadDeCarga;
+            vehiculo.Pasajeros = results.Pasajeros;
+            vehiculo.Matricula = results.Matricula;
+            vehiculo.NroSeguro = results.NroSeguro;
+            vehiculo.Latitud = results.Latitud;
+            vehiculo.Longitud = results.Longitud;
+
             mensajetest = "Existe un Vehiculo con la ID en la Base de Datos.";
         }
         else
         {
             mensajetest = "No se encontro Ningun Vehiculo con esa ID en la Base de Datos";
         }
+    }
+
+    public void Limpiar()
+    {
+        vehiculo.Marca = "";
+        vehiculo.Modelo = "";
+        vehiculo.Año = 2000;
+        vehiculo.Color = "";
+        vehiculo.Precio = 0;
+        vehiculo.TipoId = 1;
+        vehiculo.CapacidadDeCarga = 0;
+        vehiculo.Pasajeros = 0;
+        vehiculo.Matricula = "";
+        vehiculo.NroSeguro = "";
+        vehiculo.Latitud = 0;
+        vehiculo.Longitud = 0;   
     }
 
     public void UpdateVehiculo()
@@ -186,9 +217,9 @@
             {
                 result.Precio = vehiculo.Precio;
             }
-            if (vehiculo.Tipo != null)
+            if (vehiculo.TipoId != null)
             {
-                result.Tipo = vehiculo.Tipo;
+                result.TipoId = vehiculo.TipoId;
             }
             if (vehiculo.CapacidadDeCarga != null)
             {
@@ -217,6 +248,7 @@
             vehiculo.VehiculoDisponible = "Si";
 
             db.SaveChanges();
+            Limpiar();
             mensaje = "Caso Robo editado exitosamente.";
         }
         else

@@ -104,12 +104,31 @@
         bool result = db.Clientes.Any(v => v.Id == cliente.Id);
         if (result == true)
         {
+            var results = db.Clientes.Single(v => v.Id == cliente.Id);
+
+            cliente.Cedula = results.Cedula;
+            cliente.Nombre = results.Nombre;
+            cliente.Apellido = results.Apellido;
+            cliente.Correo = results.Correo;
+            cliente.Nacionalidad = results.Cedula;
+            cliente.Licencia = results.Licencia;
+            cliente.TipoSangreId = results.TipoSangreId;
+
             mensajetest = "Existe un cliente con la ID en la Base de Datos.";
         }
         else
         {
             mensajetest = "No se encontro Ningun cliente con esa ID en la Base de Datos";
         }
+    }
+
+    public void Limpiar()
+    {
+        cliente.Cedula = "";
+        cliente.Nombre = "";
+        cliente.Apellido = "";
+        cliente.Correo = "";
+        cliente.Nacionalidad = "";
     }
 
     public void UpdateCliente()
@@ -157,6 +176,7 @@
 
             db.SaveChanges();
             mensaje = "Caso editado exitosamente.";
+            Limpiar();
         }
         else
         {

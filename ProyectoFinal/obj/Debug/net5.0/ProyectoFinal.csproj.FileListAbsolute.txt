@@ -205,7 +205,6 @@ C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\R
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Clientes\ClienteEdit.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Clientes\ClienteIndex.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Clientes\ClientesList.razor.g.cs
-C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\cliente\RegistroCliente.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Cobros\Cobros.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Cobros\Editar_Cobros.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\Cobros\Eliminar_Cobros.razor.g.cs
@@ -358,7 +357,6 @@ C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\R
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Clientes\ClienteEdit.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Clientes\ClienteIndex.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Clientes\ClientesList.razor.g.cs
-C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\cliente\RegistroCliente.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Cobros\Cobros.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Cobros\Editar_Cobros.razor.g.cs
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\Cobros\Eliminar_Cobros.razor.g.cs
@@ -396,3 +394,5 @@ C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\P
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\ProyectoFinal.Views.pdb
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\ProyectoFinal.csproj.CopyComplete
 C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\ProyectoFinal.genruntimeconfig.cache
+C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\RazorDeclaration\Pages\AcercaDe.razor.g.cs
+C:\Users\mdela\Desktop\Proyectos\EquipoT-Tareas\ProyectoFinal\obj\Debug\net5.0\Razor\Pages\AcercaDe.razor.g.cs
