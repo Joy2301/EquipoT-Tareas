@@ -144,39 +144,6 @@
         }
       },
       {
-        "HashCode": -6772254,
-        "Kind": "Components.Component",
-        "Name": "ProyectoFinal.Pages.Clientes.ClienteDelete",
-        "AssemblyName": "ProyectoFinal",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ClienteDelete"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteDelete"
-        }
-      },
-      {
-        "HashCode": -1011359658,
-        "Kind": "Components.Component",
-        "Name": "ProyectoFinal.Pages.Clientes.ClienteDelete",
-        "AssemblyName": "ProyectoFinal",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ProyectoFinal.Pages.Clientes.ClienteDelete"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteDelete",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -1521092557,
         "Kind": "Components.Component",
         "Name": "ProyectoFinal.Pages.Clientes.ClienteEdit",
@@ -206,6 +173,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteEdit",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -6772254,
+        "Kind": "Components.Component",
+        "Name": "ProyectoFinal.Pages.Clientes.ClienteDelete",
+        "AssemblyName": "ProyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ClienteDelete"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteDelete"
+        }
+      },
+      {
+        "HashCode": -1011359658,
+        "Kind": "Components.Component",
+        "Name": "ProyectoFinal.Pages.Clientes.ClienteDelete",
+        "AssemblyName": "ProyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ProyectoFinal.Pages.Clientes.ClienteDelete"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProyectoFinal.Pages.Clientes.ClienteDelete",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -732,39 +732,6 @@
         }
       },
       {
-        "HashCode": 1658365201,
-        "Kind": "Components.Component",
-        "Name": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete",
-        "AssemblyName": "ProyectoFinal",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "VehiculoDelete"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete"
-        }
-      },
-      {
-        "HashCode": 920870056,
-        "Kind": "Components.Component",
-        "Name": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete",
-        "AssemblyName": "ProyectoFinal",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 1604033176,
         "Kind": "Components.Component",
         "Name": "ProyectoFinal.Pages.Vehiculos.VehiculoIndex",
@@ -827,6 +794,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "ProyectoFinal.Pages.Vehiculos.VehiculoEdit",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1658365201,
+        "Kind": "Components.Component",
+        "Name": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete",
+        "AssemblyName": "ProyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "VehiculoDelete"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete"
+        }
+      },
+      {
+        "HashCode": 920870056,
+        "Kind": "Components.Component",
+        "Name": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete",
+        "AssemblyName": "ProyectoFinal",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProyectoFinal.Pages.Vehiculos.VehiculoDelete",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

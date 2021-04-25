@@ -157,10 +157,10 @@ using ProyectoFinal.Models;
 
     public void DesCliente()
     {
-        var result = db.Clientes.Single(v => v.Cedula == iddes);
+        var result = db.Clientes.Where(v => v.Cedula == iddel).FirstOrDefault();
         if (result != null)
         {
-            result.ClienteActivo = "No.";
+            result.ClienteActivo = "No";
             db.SaveChanges();
             mensajedes = "Cliente deshabilitado exitosamente.";
         }

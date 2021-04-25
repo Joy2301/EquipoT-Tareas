@@ -157,10 +157,10 @@ using ProyectoFinal.Models;
 
     public void DesVehiculo()
     {
-        var result = db.Vehiculos.Single(v => v.Id == iddes);
+        var result = db.Vehiculos.Where(v => v.Id == iddes).FirstOrDefault();
         if (result != null)
         {
-            result.VehiculoDisponible = "No.";
+            result.VehiculoDisponible = "No";
             db.SaveChanges();
             mensajedes = "Vehiculo deshabilitado exitosamente.";
         }
